@@ -1,0 +1,23 @@
+---
+layout: archive
+title: Архив
+description: Вся коллекция писанины за разработку по годам.
+image: "/assets/images/archives.jpg"
+permalink: /archives/
+---
+
+<section class="archiveBody clearfix">
+{% for post in site.posts %}
+  {% unless post.next %}
+    <h3 id="{{ post.date | date: '%Y' }}" class="archiveYear">{{ post.date | date: '%Y' }}</h3>
+  {% else %}
+    {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+    {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+    {% if year != nyear %}
+      <h3 id="{{ post.date | date: '%Y' }}" class="archiveYear">{{ post.date | date: '%Y' }}</h3>
+    {% endif %}
+  {% endunless %}
+
+  {% include post_archive.html %}
+{% endfor %}
+</section><!-- /.archiveBody -->

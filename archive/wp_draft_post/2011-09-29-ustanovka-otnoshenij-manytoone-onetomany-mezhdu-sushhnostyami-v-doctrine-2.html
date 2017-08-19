@@ -1,0 +1,196 @@
+---
+layout: post
+status: publish
+published: true
+title: Установка отношений ManyToOne - OneToMany между сущностями в Doctrine 2
+author:
+  display_name: SlowProg
+  login: seoadmin
+  email: paperplanesu@rambler.ru
+  url: http://paperplane.su
+author_login: seoadmin
+author_email: paperplanesu@rambler.ru
+author_url: http://paperplane.su
+wordpress_id: 1149
+wordpress_url: http://paperplane.su/?p=1149
+date: '2011-09-29 22:59:28 +0400'
+date_gmt: '2011-09-29 22:59:28 +0400'
+categories:
+- Doctrine 2
+tags:
+- symfony2
+- doctrine2
+- отношения
+comments:
+- id: 35303
+  author: ReMik
+  author_email: ermolaera@gmail.com
+  author_url: ''
+  date: '2012-02-01 20:14:15 +0400'
+  date_gmt: '2012-02-01 16:14:15 +0400'
+  content: "Доброе время суток!\r\nразбираюсь с sf2, столкнулся с проблемой. надеюсь
+    подможете несмотря на дату поста :)\r\nclass TaskContext {\r\n......\r\n    &#47;**\r\n
+    \    * Bidirectional - One TaskContext have many Tasks\r\n     *\r\n     * @ORM\\OneToMany(targetEntity=\"Task\",
+    mappedBy=\"context\")\r\n     * \r\n     *&#47;\r\n    private $tasks;\r\n.....\r\n}\r\nclass
+    Task\r\n{\r\n...... \r\n  &#47;**\r\n     * Bidirectional - Many Tasks have one
+    TaskContext\r\n     * \r\n     * @ORM\\ManyToOne(targetEntity=\"TaskContext\",
+    inversedBy=\"tasks\")\r\n     * \r\n     * @ORM\\JoinColumn(name=\"context_id\",
+    referencedColumnName=\"id\")\r\n     * \r\n     *&#47;\r\n    private $context;\r\n.......\r\n}\r\nпри
+    удалении TaskContext он пишет ( который уже используется хотябы в одном Task)\r\nSQLSTATE[23000]:
+    Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign
+    key constraint fails (`symfony`.`task`, CONSTRAINT `FK_F24C741B6B00C1CF` FOREIGN
+    KEY (`context_id`) REFERENCES `taskcontext` (`id`)) \r\nт.е. не может удалить
+    т.к. есть связь в Task. по идее этот момент разруливается с помощью cascade но
+    cascade={remove} удаляет и связанный Task , что не надо. а остальные режимы не
+    помогаю. вот не могу понять то ли я не правильно что то понимаю, толи подходящего
+    режима нет."
+- id: 35316
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-02-01 22:07:21 +0400'
+  date_gmt: '2012-02-01 18:07:21 +0400'
+  content: |-
+    Доброе. Хм, наверно вам вначале стоить разрушить между ними связь, убрать внешний ключ, так сказать. Что-то типа того:
+
+    <code>$tasks->setTaskContext(null);
+    $em->persist($tasks);
+    $em->flush();<&#47;code>
+
+    После этого можно удалять Tasks, так как больше не должно быть внешнего ключа объединяющего его с TaskContext. Попробуйте =)
+- id: 35345
+  author: ReMik
+  author_email: ermolaevra@gmail.com
+  author_url: ''
+  date: '2012-02-02 04:55:44 +0400'
+  date_gmt: '2012-02-02 00:55:44 +0400'
+  content: "Пробывал... но так тоже есть два но.во первых там явно указан тип, и на
+    null он ругается\r\n   &#47;**\r\n     * Set context\r\n     *\r\n     * @param
+    Remik\\TaskBundle\\Entity\\TaskContext $context\r\n     *&#47;\r\n    public function
+    setContext(\\Remik\\TaskBundle\\Entity\\TaskContext $context)\r\n    {\r\n        $this->context
+    = $context;\r\n    }\r\nа во вторых получается это нужно циклом как минимум по
+    всем Tasks с таким TaskContext бегать а это как то некрасиво чтоли... не по идеологии
+    чтоли. по идее в данном случае надо ставить cascade detach - для отсоединия и
+    persist для того чтобы он изменил связь. но что то не работает такой вариант.\r\nps
+    $taskContext->getTasks()->clear(); тоже не работает. очищает коллекцию обьекта
+    но не сохраняет изменения в связанные обьекты."
+- id: 35350
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-02-02 09:53:16 +0400'
+  date_gmt: '2012-02-02 05:53:16 +0400'
+  content: Чтобы сохранилось в базе нужно не забывать про <em>persist<&#47;em> и <em>flush<&#47;em>.
+    А вообще вот <a href="http:&#47;&#47;www.doctrine-project.org&#47;docs&#47;orm&#47;2.0&#47;en&#47;reference&#47;working-with-associations.html#removing-associations"
+    target="_blank" rel="nofollow">посмотри<&#47;a>, должно помочь =)
+- id: 35359
+  author: ReMik
+  author_email: ermolaevra@gmail.com
+  author_url: ''
+  date: '2012-02-02 15:48:40 +0400'
+  date_gmt: '2012-02-02 11:48:40 +0400'
+  content: "про persist c flush не забываю :) и док по доктрине видел. короче в итоге
+    сделал http:&#47;&#47;symfony2forum.org&#47;threads&#47;1-SQLSTATE-23000-Integrity-constraint-violation.\r\nимхо
+    костыль конечно но ничего другого не работает.\r\nспасибо за помощь ;)"
+- id: 35472
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-02-03 11:12:32 +0400'
+  date_gmt: '2012-02-03 07:12:32 +0400'
+  content: Да я и не помог даже. Все мы только учимся =)
+- id: 134243
+  author: Эрнест
+  author_email: ernest.rahmatulin@gmail.com
+  author_url: ''
+  date: '2013-01-22 00:11:45 +0400'
+  date_gmt: '2013-01-21 20:11:45 +0400'
+  content: Снова гугл бросает на paperplane.su, снова я доволен как слон :) Пример
+    действительно простой и доступный. Такие публикации очень помогают, сжато, с примером,
+    самое оно.
+- id: 134272
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-01-22 07:55:01 +0400'
+  date_gmt: '2013-01-22 03:55:01 +0400'
+  content: Ахах, люблю слонов =) У меня в зачатках еще несколько статей про Symfony2
+    и Doctrine2, но всё руки как-то не доходят их доделать. Надеюсь, что соберусь
+    когда-нибудь =)
+- id: 196083
+  author: PLU
+  author_email: shumstanya@yandex.ru
+  author_url: http://plutov.by
+  date: '2013-11-16 00:26:27 +0400'
+  date_gmt: '2013-11-15 20:26:27 +0400'
+  content: "http:&#47;&#47;plutov.by&#47;post&#47;data_fixtures\r\nвот ещё интересная
+    статья по теме"
+- id: 196144
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-11-16 15:34:24 +0400'
+  date_gmt: '2013-11-16 11:34:24 +0400'
+  content: Да и блог в целом очень даже хороший =)
+---
+<p><a href="http:&#47;&#47;image.paperplane.su&#47;2011&#47;09&#47;doctrine-2.png"><img class="alignleft size-medium wp-image-1155" title="Организация отношений один-ко-многим между сущностями в Doctrine 2" src="http:&#47;&#47;image.paperplane.su&#47;2011&#47;09&#47;doctrine-2-300x300.png" alt="Организация отношений один-ко-многим между сущностями в Doctrine 2" width="300" height="300" &#47;><&#47;a>Доброе время суток, дорогой читатель. Как вы знаете, сейчас многие переходят с Symfony 1.4 на Sumfony 2, что&nbsp;сопряженно&nbsp;с некоторыми трудностями. Одной из трудностей является побочный переход с Doctrine 1 на <strong>Doctrine 2<&#47;strong>. Тут трудности начинаются с самого начала и, как показала практика, десяти минут не хватит, чтобы вникнуть во все нововведения с наскоку. Чтобы у вас не возникало проблем на первых парах, я решил написать небольшую статейку про использование Doctrine 2. В частности, про то что необходимо чаще всего, про установление отношений <em>OneToMany<&#47;em> и <em>ManyToOne&nbsp;<&#47;em>между создаваемыми таблицами с помощью аннотации.</p>
+<p>Не будем долго ходить вокруг да около, и приступим к написанию кода связи между сущностями. Это можно продемонстрировать с помощью простого примера. Допустим, у нас есть &nbsp;две сущности: пользователей и его запросы. Соответственно <em>User<&#47;em> и <em>Request<&#47;em>. Теперь давайте определим отношения между ними, как User - OneToMany -&nbsp;Request. Это делается очень просто с помощью аннотации и выглядит следующим образом:</p>
+<h2>User.php<&#47;h2><br />
+[cce lang="php"]<?php<br />
+&#47;**<br />
+ * @Entity<br />
+ * @Table(name="users")<br />
+ *&#47;  </p>
+<p>class User<br />
+{<br />
+    &#47;**<br />
+     * @Id<br />
+     * @Column(type="integer")<br />
+     * @GeneratedValue<br />
+     *&#47;<br />
+    public $id;  </p>
+<p>    &#47;**<br />
+     * @Column(type="string", length=30, name="first_name", nullable=false)<br />
+     *&#47;<br />
+    public $firstName;  </p>
+<p>    &#47;**<br />
+     * @Column(type="string", length=30, name="last_name", nullable=false)<br />
+     *&#47;<br />
+    public $lastName;  </p>
+<p>    &#47;**<br />
+     * @Column(type="string", length=60, nullable=false, unique=true)<br />
+     *&#47;<br />
+    public $email;  </p>
+<p>    &#47;**<br />
+     * @OneToMany(targetEntity="Request", mappedBy="user")<br />
+     *&#47;<br />
+    private $requests;<br />
+}[&#47;cce]</p>
+<h2>Request.php<&#47;h2><br />
+[cce lang="php"]<?php<br />
+&#47;**<br />
+ * @Entity<br />
+ * @Table(name="requests")<br />
+ *&#47;<br />
+class Request<br />
+{<br />
+    &#47;**<br />
+     * @Id<br />
+     * @Column(type="integer")<br />
+     * @GeneratedValue<br />
+     *&#47;<br />
+    public $id;  </p>
+<p>    &#47;**<br />
+     * @ManyToOne(targetEntity="User", inversedBy="requests")<br />
+     * @JoinColumn(name="user", referencedColumnName="id")<br />
+     *&#47;<br />
+    public $user;  </p>
+<p>    &#47;**<br />
+     * @Column(type="datetime", name="request_date", nullable=false)<br />
+     *&#47;<br />
+    public $requestDate;<br />
+}[&#47;cce]<br />
+Как вы видите из приведенного выше кода, каждый пользователь может иметь любое количество запросов. Для этого устанавливаем отношение <em>ManyToOne<&#47;em> в класс <em>Request<&#47;em> и <em>OneToMany<&#47;em> в класса <em>User<&#47;em>. Переменная <em>$user<&#47;em> класса <em>Request<&#47;em> является внешним ключом (FK) к переменной <em>$id<&#47;em> класса User. Собственно, как это и бывает в обычных таблицах в базах.</p>
+<p>Будьте внимательней и не добавляйте <em>@Column<&#47;em> для полей&nbsp;предназначенных&nbsp;для установления отношений между сущностями, а именно для <em>ManyToOne<&#47;em> и <em>OneToMany,<&#47;em>&nbsp;как для дочерней сущности, так и для родительской.&nbsp;Главное,&nbsp;при написании аннотации не запутаться в том кому какое свойство прописать. Из примера выше, <em>ОДИН<&#47;em> пользователь может иметь <em>МНОГО<&#47;em> запросов. Поэтому у пользователя свойство <em>OneToMany<&#47;em>, а у запросов - <em>ManyToOne<&#47;em>.</p>
+<p>Используйте <em>@JoinColumn<&#47;em>&nbsp;только в случае, если вы не хотите создавать поле в таблице с именем по умолчанию&nbsp;(имя_переменной + &nbsp;_id), в нашем случаи это было бы поле под именем <em>user_id<&#47;em>. И&#47;или если вы хотите соединить внешний ключ дочерней таблицей с другим полем родительской таблицы, отличным от его главного ключа (PK), в данном примере отличным от <em>$id<&#47;em>.</p>
+<p>На этом на сегодня все. Надеюсь я смог кому-нибудь помочь. А если у кого-то не получилось наладить взаимоотношения между сущностями, то прошу в комментарии - будем решать задачу сообща. Всем удачного программирования.</p>

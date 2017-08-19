@@ -1,0 +1,48 @@
+---
+layout: search
+title: "Поиск"
+description: "Поиск по статьям."
+permalink: /search/
+sitemap: false
+robots: "noindex, follow"
+---
+
+{% assign site_title = site.title | default: site.name %}
+{% if site_title %}
+  {% assign site_title = site_title | smartify | strip_html | strip_newlines | escape_once %}
+{% endif %}
+
+<h3 class="searchPage-heading"><span class="svg-icon icon-search svg-baseline" aria-hidden="true"><svg><use xlink:href="/assets/icons/icons.min.svg#icon-search"></use></svg></span> Поиск по статьям</h3>
+
+<div class="searchPage-body" id="cse-search">
+  <!-- Google CSE search box begins  -->
+  <form class="searchPage-form" id="cse_{{ site.google_cse_id }}" action="/search/" role="search">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" id="q" name="q" placeholder="Введи поисковый запрос" tabindex="1" autocapitalize="off" autofocus autocomplete="off" spellcheck="false">
+          <div class="input-group-btn">
+            <button type="submit" class="btn btn-default" tabindex="2"><span class="svg-icon icon-search svg-baseline" aria-hidden="true"><svg><use xlink:href="/assets/icons/icons.min.svg#icon-search"></use></svg></span></button>
+          </div><!-- /.btn-group -->
+        </div><!-- /.input-group -->
+      </div><!-- /.col-xs-12 -->
+    </div><!-- /.row -->
+  </form>
+
+  <script>
+    (function() {
+      var cx = '{{ site.google_cse_id }}';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+          '//cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+
+  <div class="searchPage-results">
+    <gcse:searchresults-only linktarget="_parent"></gcse:searchresults-only>
+  </div>
+</div><!-- ./search-box -->

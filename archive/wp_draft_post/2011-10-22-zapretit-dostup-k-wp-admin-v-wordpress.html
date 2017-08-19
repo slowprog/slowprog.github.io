@@ -1,0 +1,455 @@
+---
+layout: post
+status: publish
+published: true
+title: Запретить доступ к wp-admin в WordPress
+author:
+  display_name: SlowProg
+  login: seoadmin
+  email: paperplanesu@rambler.ru
+  url: http://paperplane.su
+author_login: seoadmin
+author_email: paperplanesu@rambler.ru
+author_url: http://paperplane.su
+wordpress_id: 1320
+wordpress_url: http://paperplane.su/?p=1320
+date: '2011-10-22 05:28:14 +0400'
+date_gmt: '2011-10-22 05:28:14 +0400'
+categories:
+- Без плагина
+tags:
+- сниппет
+- админка
+comments:
+- id: 568
+  author: Сергей
+  author_email: exreason@yandex.com
+  author_url: ''
+  date: '2011-11-07 10:57:38 +0400'
+  date_gmt: '2011-11-07 10:57:38 +0400'
+  content: "Здравствуйте!\r\n\r\nФишка с редиректом хорошая. давно искал. кстати,
+    нашел Вас благодаря searchingman с mywordpress. Всегда помогает, если может...
+    \r\n\r\nТолько, вот, после установки этого кода меня самого перестало пускать
+    в админку. Просто, пароль постоянно сбрасывает и все. Никакого редиректа. А пытаюсь
+    зайти, как обычно - с логином и паролем администратора (единственного на блоге).\r\n\r\nКаким
+    может быть решение?\r\n\r\nЗаранее благодарю за ответ!\r\n\r\nС уважением,\r\nСергей"
+- id: 571
+  author: SlowProg (admin)
+  author_email: gilberthosting@gmail.com
+  author_url: http://paperplane.su
+  date: '2011-11-08 10:26:00 +0400'
+  date_gmt: '2011-11-08 10:26:00 +0400'
+  content: "Очень странно. Я прямо сейчас проверил код и он работает. Всех админов
+    (с правами $user_info->wp_user_level > 0) пускает, а всех подписчиков с правами
+    0 не пускет на страницу администрации. Даже не знаю, что и можно предположить.
+    \n\nМожет быть у вас в functions.php уже что-то делается с редиректами? или как
+    вариант проверьте переменную $user_info->wp_user_level. Есть ли в ней что-нибудь.
+    Выведете на экран при помощи echo. Когда вы заходите под админом она ровна 10,
+    когда подписчик, то 0. просто код очень простой и ошибок почти нигде не может
+    быть."
+- id: 572
+  author: Сергей
+  author_email: exreason@yandex.com
+  author_url: ''
+  date: '2011-11-08 10:41:21 +0400'
+  date_gmt: '2011-11-08 10:41:21 +0400'
+  content: "С редиректами в functions.php ничего нет, но с логином работает такая
+    функция: add_filter('login_errors',create_function('$a', \"return null;\"));\r\n\r\nА
+    еще у меня LoginLockDown стоит."
+- id: 584
+  author: SlowProg (admin)
+  author_email: gilberthosting@gmail.com
+  author_url: http://paperplane.su
+  date: '2011-11-11 15:01:49 +0400'
+  date_gmt: '2011-11-11 15:01:49 +0400'
+  content: |-
+    Извините за долгий ответ. Был занят, весь в делах =)
+
+    Вполне возможно, что кто-то из них и правда мешает. Можете попробывать вначале убрать перехват ошибки, а если не сработает, то отключить плагин. Если конечно вы еще это не сделали =) По результатом этого будем думать дальше =)
+- id: 590
+  author: Сергей
+  author_email: exreason@yandex.com
+  author_url: ''
+  date: '2011-11-12 08:52:59 +0400'
+  date_gmt: '2011-11-12 08:52:59 +0400'
+  content: "Здравствуйте!\r\n\r\nСегодня перепроверил без плагина и без перехвата
+    ошибки, - результат тот же. В общем, ведет себя так: Захожу в wp-admin, ввожу
+    логин и пароль; нажимаю \"Соединиться\" и система, просто, сбрасывает пароль,
+    и никуда дальше не идет.\r\n\r\nЧто еще может заставлять функцию некорректно работать?\r\n\r\nЗаранее
+    благодарю за ответ!"
+- id: 593
+  author: SlowProg (admin)
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2011-11-12 12:09:08 +0400'
+  date_gmt: '2011-11-12 12:09:08 +0400'
+  content: Так так. Сегодня посмотрел потестил и вдруг меня осенило. Наверника у вас
+    префик таблиц базы данных не <em>wp_<&#47;em>. А в переменной <em>wp_user_level<&#47;em>
+    вначале стоит именно префикс базы данных. Как вариант сменить его на ваш или вообще
+    писать без префикса, как я сейчас поправил вверху код, я его сделал без префикса,
+    теперь просто используется переменная <em>user_level<&#47;em>. Я конечно не знаю
+    всех тонкостей, но вроде так wordpress все поймет и все сработает. попробуйте
+    сделать так и отпишитесь о результатах.
+- id: 594
+  author: Сергей
+  author_email: exreason@yandex.com
+  author_url: ''
+  date: '2011-11-12 12:25:08 +0400'
+  date_gmt: '2011-11-12 12:25:08 +0400'
+  content: "Спасибо Огромное!)))) Заработало!!!)) \r\n\r\n...Ну, по крайней мере,
+    я у себя в админке))) Спасибо! Спасибо! Спасибо!))\r\n\r\nЗакажу-ка я Вам, пожалуй,
+    доработку своего сайта))))"
+- id: 596
+  author: SlowProg (admin)
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2011-11-12 17:14:40 +0400'
+  date_gmt: '2011-11-12 17:14:40 +0400'
+  content: "Не за что! всегда рад! Вы в админке, а Подписчик точно не сможет туда
+    попасть.\r\n\r\nМожете заказать доработку. С удовольствием возьмусь =) В форму
+    обратной связи, пожалуйста =)"
+- id: 42513
+  author: Otshelnik-fm
+  author_email: Otshelnik-Fm@yandex.ru
+  author_url: http://beoff.ru
+  date: '2012-02-24 01:30:40 +0400'
+  date_gmt: '2012-02-23 21:30:40 +0400'
+  content: "этот редирект и в кнопке входа можно прописать . \r\n\r\nА как сделать
+    прямой заход чтоб не был возможен в (http:&#47;&#47;сайт&#47;wp-admin&#47;)? Этот
+    код пускает туда по прямой ссылке"
+- id: 42515
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-02-24 02:30:39 +0400'
+  date_gmt: '2012-02-23 22:30:39 +0400'
+  content: Все, поправил код. тот бы старый, и наверно в новой версии не работает.
+    сейчас я проверил и Подписчик после аутентификации кидается на главную, в случаи
+    попытки войти в админку все равно кидается на главную.
+- id: 45677
+  author: laticq
+  author_email: laticq@mail.ru
+  author_url: ''
+  date: '2012-05-05 01:05:06 +0400'
+  date_gmt: '2012-05-04 21:05:06 +0400'
+  content: Этот код работает, да. Но у меня установлен плагин, работающий с Аяксом
+    Вордпресса, который обращается по по адресу  &#47;wp-admin&#47;admin-ajax.php.
+    Ну и соответсвенно ему выдают домашнюю страницу. Что делать и как быть?
+- id: 45734
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-05-07 00:56:50 +0400'
+  date_gmt: '2012-05-06 20:56:50 +0400'
+  content: Хм, тут вроде не обойтись таим кодом. И скорее всего можно сделать, если
+    только ползти в код плагина и там делать нечто подобное коду выше. Сложно сказать,
+    тут нужно уже потестировать код =)
+- id: 45740
+  author: laticq
+  author_email: laticq@mail.ru
+  author_url: ''
+  date: '2012-05-07 11:26:31 +0400'
+  date_gmt: '2012-05-07 07:26:31 +0400'
+  content: "Решилось кодом из DW Admin Block (http:&#47;&#47;www.danielwoolnough.com&#47;product&#47;dw-admin-block)\r\n-----------\r\n\t\tif
+    (\r\n\t\t\tstripos($_SERVER['REQUEST_URI'],'&#47;wp-admin&#47;') !== false\r\n\t\t\t&amp;&amp;\r\n\t\t\tstripos($_SERVER['REQUEST_URI'],'async-upload.php')
+    == false\r\n\t\t\t&amp;&amp;\r\n\t\t\tstripos($_SERVER['REQUEST_URI'],'admin-ajax.php')
+    == false\r\n\t\t) { ... редиректы }\r\n----------"
+- id: 45741
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-05-07 12:57:05 +0400'
+  date_gmt: '2012-05-07 08:57:05 +0400'
+  content: Отлично! В принципе, у меня у самого в шаблоне подобное используется, но
+    я что-то так спать хотел, что вчера не мог сообразить =)
+- id: 67703
+  author: Александр
+  author_email: login2030@gmail.com
+  author_url: ''
+  date: '2012-08-08 12:49:09 +0400'
+  date_gmt: '2012-08-08 08:49:09 +0400'
+  content: "Очень помогает Ваш код, но есть один вопрос, как запретить доступ к админке
+    всем группам(ролям) кроме админа? В Вашем коде прописано- if ( $user_info->user_level
+    == 0 )\r\nМожет его просто нужно дописать как то?"
+- id: 67708
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-08-08 12:58:01 +0400'
+  date_gmt: '2012-08-08 08:58:01 +0400'
+  content: Да, все верно нужно дописать. <a href="http:&#47;&#47;codex.wordpress.org&#47;Roles_and_Capabilities#User_Levels"
+    rel="nofollow">Тут<&#47;a> смотрите какие еще уровни бывают. Конечно пользоваться
+    уровнями не рекомендуется, а рекомендуется переходить на роли (они там же описаны
+    выше), но если очень хочется...
+- id: 67715
+  author: Александр
+  author_email: login2030@gmail.com
+  author_url: ''
+  date: '2012-08-08 13:13:06 +0400'
+  date_gmt: '2012-08-08 09:13:06 +0400'
+  content: "То есть если я правильно понял мне нужно дописать это так(Сильно не пинайте
+    за наивность, весь материал приходится буквально на лету в сайты кидать)\r\nif
+    (is_user_logged_in() &amp;&amp; is_admin())\r\n{\r\n    global $current_user;\r\n
+    \   get_currentuserinfo();\r\n    $user_info = get_userdata($current_user->ID);\r\n
+    \   if ( $user_info->user_level == 0 )\r\nif ( $user_info->user_level == 1 )\r\nif
+    ( $user_info->user_level == 2 )\r\n    {\r\n        wp_redirect(get_bloginfo('home'),
+    301);;\r\n    }\r\n}"
+- id: 67717
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-08-08 13:16:31 +0400'
+  date_gmt: '2012-08-08 09:16:31 +0400'
+  content: "не совсем. Я смотрю с PHP не знакомы. Условие нужно заменить на следующее:\r\n<code>if
+    ( $user_info->user_level == 0 and $user_info->user_level == 1 and $user_info->user_level
+    == 2 )<&#47;code>\r\nТогда не один из них не будет пропускаться."
+- id: 67723
+  author: Александр
+  author_email: login2030@gmail.com
+  author_url: ''
+  date: '2012-08-08 13:23:52 +0400'
+  date_gmt: '2012-08-08 09:23:52 +0400'
+  content: Да не знаком к сожалению(Как говорится кто на что учился), но вот так сложилось,
+    что теперь приходится изучать данную тематику и работать методом тыка(молясь чтобы
+    сайт не нагнулся). Спасибо за информацию
+- id: 67731
+  author: Александр
+  author_email: login2030@gmail.com
+  author_url: ''
+  date: '2012-08-08 13:40:39 +0400'
+  date_gmt: '2012-08-08 09:40:39 +0400'
+  content: Придется к сожалению Вас еще потревожить. Ставлю строчку- if ( $user_info->user_level
+    == 0 and $user_info->user_level == 1 and $user_info->user_level == 2 ) и всех
+    при входе кидает в админку.
+- id: 67733
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-08-08 13:42:13 +0400'
+  date_gmt: '2012-08-08 09:42:13 +0400'
+  content: "Ой! Виноват, не тот логический оператор поставил =))) Нужно ИЛИ, а не
+    И\r\n<code>if ( $user_info->user_level == 0 or $user_info->user_level == 1 or
+    $user_info->user_level == 2 )<&#47;code>"
+- id: 131254
+  author: Запретить доступ к wp-admin в WordPress | Wiki
+  author_email: ''
+  author_url: http://skillweb.ru/zapretit-dostup-k-wp-admin-v-wordpress/
+  date: '2012-12-28 19:14:41 +0400'
+  date_gmt: '2012-12-28 15:14:41 +0400'
+  content: "[...] http:&#47;&#47;paperplane.su&#47;zapretit-dostup-k-wp-admin-v-wordpress&#47;
+    &ndash; быстрый способ запретить доступ к админке(wp-admin) для определенных ролей&#47;уровней
+    доступа. [...]"
+- id: 132613
+  author: Иван
+  author_email: popekka@mail.ru
+  author_url: ''
+  date: '2013-01-08 23:42:05 +0400'
+  date_gmt: '2013-01-08 19:42:05 +0400'
+  content: "А нельзя ли проще? если user_level не равен 10 то делать редирект (тобиш
+    всем запрет кроме админа)?\r\n<code>if ( $user_info->user_level != 10)<&#47;code>\r\n\r\nИ
+    еще вопросик. там есть еще уровни 9 и 8 и они тоже вроде как Администратор. Зачем
+    они нужны не подскажете? и стоит ли им давать доступ при условии что хочу запрещать(редиректить)
+    доступ для всех кроме админа"
+- id: 132615
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-01-08 23:51:52 +0400'
+  date_gmt: '2013-01-08 19:51:52 +0400'
+  content: "Можно и всех редиректить кроме админ, тут по желанию. Просто в статье
+    рассматривается вариант редиректа только подписчика.\r\n\r\nЗачем 8 и 9 я, честно,
+    сказать точно не могу. Но могу сказать, что это уже устаревший метод разделения
+    пользователь и он присутствует только для обратной совместимости. Вот <a href=\"http:&#47;&#47;codex.wordpress.org&#47;Roles_and_Capabilities\"
+    rel=\"nofollow\">тут<&#47;a> читайте про это подробнее.\r\n\r\nИз мануала выше
+    по ссылке:\r\n<code>User Level 8 converts to Administrator\r\nUser Level 9 converts
+    to Administrator\r\nUser Level 10 converts to Administrator<&#47;code>\r\nА это
+    значит, что чем бы эти 10, 9 и 8 раньше не являлись сейчас это в любом случаи
+    роль Administrator, которая обладает конкретными действиями (подробней по ссылке)."
+- id: 132618
+  author: Иван
+  author_email: popekka@mail.ru
+  author_url: ''
+  date: '2013-01-09 00:03:28 +0400'
+  date_gmt: '2013-01-08 20:03:28 +0400'
+  content: "1 вопрос уже сам проверил, вроде работает\r\n2 вопрос я так понимаю что
+    10 уровень это что-то вроде СуперАдмин\r\nа у 8 и 9 некоторые права можно урезать,
+    поправьте меня если не так, очень нужно знать наверняка)))"
+- id: 132619
+  author: Иван
+  author_email: popekka@mail.ru
+  author_url: ''
+  date: '2013-01-09 00:24:01 +0400'
+  date_gmt: '2013-01-08 20:24:01 +0400'
+  content: "Спасибо огромное за быстрый ответ\r\nможно еще один вопрос по wordpress
+    раз уж вы здесь? возможно это кому то пригодится или вам статья как вариант а
+    возможно и просто повод поразмыслить.\r\n\r\nсуть: загружать файлы в вордпресс
+    можно в отдельные директории по году и месяцу. хотелось чтоб еще была поддиректория
+    дня\r\n\r\nнашел в ..&#47;wp-includes&#47;functions.php такие строки:\r\n\r\n<code>\tif
+    ( get_option( 'uploads_use_yearmonth_folders' ) ) {\r\n\t\t&#47;&#47; Generate
+    the yearly and monthly dirs\r\n\t\tif ( !$time )\r\n\t\t\t$time = current_time(
+    'mysql' );\r\n\t\t$y = substr( $time, 0, 4 );\r\n\t\t$m = substr( $time, 5, 2
+    );\r\n\t\t$subdir = \"&#47;$y&#47;$m\";\r\n\t}\r\n<&#47;code> и немного изменил.
+    стало так:\r\n<code>if ( get_option( 'uploads_use_yearmonth_folders' ) ) {\r\n\t\t&#47;&#47;
+    Генерация директорий Года,Месяца и Числа для загружаемых файлов\r\n\t\tif ( !$time
+    )\r\n\t\t\t$time = current_time( 'mysql' );\r\n\t\t$y = substr( $time, 0, 4 );\r\n\t\t$m
+    = substr( $time, 5, 2 );\r\n\t\t$d = substr( $time, 8, 2 ); &#47;&#47; Добавлена
+    строчка\r\n\t\t$subdir = \"&#47;$y&#47;$m&#47;$d\"; &#47;&#47; и переменная $d\r\n\t}
+    <&#47;code>\r\n\r\nтоесть теперь загружаемый файл помещается в директорию по дню
+    (uploads&#47;2013&#47;01&#47;09) теперь при необходимости искать загруженный файл
+    легче гораздо.\r\n\r\n\r\nа теперь сам вопрос: при обновлении у меня весь этот
+    код естественно исправиться на \"как было\", как же мне прописать эту функцию
+    в functions.php шаблона а не в ..&#47;wp-includes&#47;functions.php? если я ту
+    же функцию скопирую и вставлю в functoins.php самого шаблона то вордпрессу будут
+    известны 2 одинаковых функции и как он с ними поступит черт его знает))). \r\n\r\nкак
+    сделать правильно подскажите, ато ума не приложу, явно решение простое но я в
+    ступоре)))"
+- id: 132625
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-01-09 01:42:33 +0400'
+  date_gmt: '2013-01-08 21:42:33 +0400'
+  content: "Необходимо юзать фильтры, которые позволят перехватывать любой этап выполнения
+    WordPress. Они все есть в документации и вообще в инете много материала. В вашем
+    случае в <em>functions.php<&#47;em> нужно вставить следующий код:\r\n<code>add_filter('upload_dir',
+    'sp_upload_dir');\r\n\r\nfunction sp_upload_dir($upload) {\r\n\r\n\t$time = current_time(
+    'mysql' );\t\t\r\n\t$day = substr( $time, 8, 2 );\r\n\t$upload['subdir'] .= \"&#47;\"
+    . $day;\r\n\t$upload['path'] .= \"&#47;\" . $day;\r\n\t$upload['url'] .= \"&#47;\"
+    . $day;\r\n\r\n\treturn $upload;\r\n}<&#47;code>"
+- id: 132627
+  author: Иван
+  author_email: popekka@mail.ru
+  author_url: ''
+  date: '2013-01-09 01:54:06 +0400'
+  date_gmt: '2013-01-08 21:54:06 +0400'
+  content: "спасибо огромное!!! ато уже весь тынет загуглил досмерти))), сделайте
+    статью на эту тему наверняка многие это ищут.\r\n\r\nно какой запрос для поиска
+    должен быть? ))))\r\n\r\nдоходило даже до такого \"wordpress при обновлении изменяется
+    на старое\" ))))) туплю уже, наверное пора спать, удачи вам!!!"
+- id: 132634
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-01-09 02:21:32 +0400'
+  date_gmt: '2013-01-08 22:21:32 +0400'
+  content: "НУ может так же как тут в снипет вынесу отдельно. но особо ничего писать
+    не буду.\r\n\r\nа гуглить надо на английском языке. на русском гораздо меньше
+    материала. например что-то вроде того <em>wordpress upload file directory change<&#47;em>.
+    впредь гуглите на английском."
+- id: 132637
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-01-09 02:58:42 +0400'
+  date_gmt: '2013-01-08 22:58:42 +0400'
+  content: И я всё таки решил по вашему совету опубликовать статейку. Быстренько накидал
+    про <a href="http:&#47;&#47;paperplane.su&#47;wordpress-upload-directory-change&#47;"
+    rel="nofollow">смену папки загрузки в WordPress<&#47;a>. Там еще пару примеров
+    привел, как можно изменить стандартную структуру загрузки. Может будет полезно.
+- id: 133021
+  author: Иван
+  author_email: popekka@mail.ru
+  author_url: ''
+  date: '2013-01-12 01:47:31 +0400'
+  date_gmt: '2013-01-11 21:47:31 +0400'
+  content: Вот и прекрасно! Ещё раз спасибо вам
+- id: 134879
+  author: yurij
+  author_email: info@vysokoblog.ru
+  author_url: ''
+  date: '2013-01-27 10:43:08 +0400'
+  date_gmt: '2013-01-27 06:43:08 +0400'
+  content: Титнул пост кнопочкой, твит пришел, но на сайте у вас так и осталось 0.
+    Сообщаю рез-ты теста, удачи в ремонте кнопки, спасибо за статью в бложике понравилось!
+- id: 134883
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-01-27 11:43:09 +0400'
+  date_gmt: '2013-01-27 07:43:09 +0400'
+  content: Они похоже не сразу срабатывают. По моим наблюдениям счётчик обновляется
+    не сразу, а через некоторое время. Правда, не всегда это твитты могут быть найдены,
+    что странно =)
+- id: 217289
+  author: Андрей
+  author_email: agor2010@gmail.com
+  author_url: http://kopirka-ekb.ru/
+  date: '2013-12-26 09:28:33 +0400'
+  date_gmt: '2013-12-26 05:28:33 +0400'
+  content: "Здравствуйте!\r\nВаш код отлично работает - спасибо!\r\n\r\nНо у меня
+    такая проблема: - я хочу сделать возможным публикацию постов для пользователей
+    со страницы сайта, без доступа в админку. Поставил плагин Frontier Post - все
+    работает, только если вставить ваш код - не получается пользователям кроме админа
+    загружать в пост картинки - выдает ошибку.\r\n\r\nМожно ли это как-то решить?\r\nСпасибо"
+- id: 217290
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-12-26 10:09:16 +0400'
+  date_gmt: '2013-12-26 06:09:16 +0400'
+  content: 'Думаю если и можно это как обойти, то только нагромождением костылей.
+    Поскольку тут конфлик интересов: вы не хотите пускать пользователей в админку,
+    но чтобы загрузить картинку нужно их пустить, поскольку загрузка делается через
+    функционал админки. Наверно придётся отказаться от моего кода. Либо писать костыль,
+    который через попу загружает картинки. Хотя может ещё выход есть, но я не знаю
+    =))'
+- id: 235508
+  author: Евгений
+  author_email: doc07r@rambler.ru
+  author_url: http://мой-бизнес-онлайн.рф
+  date: '2014-07-21 08:30:45 +0400'
+  date_gmt: '2014-07-21 04:30:45 +0400'
+  content: "Здравствуйте!\r\nА как настроить редирект не на главную страницу блога,
+    а на текущую, как в случае с описанным Вами редиректом после авторизации? (http:&#47;&#47;paperplane.su&#47;redirekt-posle-avtorizacii&#47;)
+    Хотелось бы, чтоб пользователь оставался на текущей странице.\r\nСпасибо."
+- id: 235725
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2014-07-28 10:04:51 +0400'
+  date_gmt: '2014-07-28 06:04:51 +0400'
+  content: |-
+    Извините за долгий ответ &ndash; был небольшой отпуск.
+
+    Если проблема ещё актуальна, то Вы имеете в виду случай с Вашим сайтом указанным при комментировании? Там где модальное окно авторизации? Если да, то случай я так понимаю немного другой, и я не могу уже точно сказать, как действовать, поскольку не знаю как там всё сделано. А если имеется в виду стандартная комплектация WordPress, то нужно вместо <em>get_bloginfo('home')<&#47;em> вставить <em>wp_get_referer()<&#47;em> и должно заработать, хотя я не проверял =)
+- id: 235731
+  author: Евгений
+  author_email: doc07r@rambler.ru
+  author_url: http://мой-бизнес-онлайн.рф
+  date: '2014-07-28 12:23:19 +0400'
+  date_gmt: '2014-07-28 08:23:19 +0400'
+  content: Спасибо, попробую.
+- id: 247897
+  author: Alina
+  author_email: tatarko.cont@gmail.com
+  author_url: ''
+  date: '2015-03-05 13:48:28 +0300'
+  date_gmt: '2015-03-05 09:48:28 +0300'
+  content: Спасибо!
+- id: 267486
+  author: andy
+  author_email: ady200@mail.ru
+  author_url: http://kinoarhiv.hol.es
+  date: '2016-01-07 02:08:32 +0300'
+  date_gmt: '2016-01-06 22:08:32 +0300'
+  content: Спасибо!
+- id: 278283
+  author: webmera
+  author_email: anomalymera@yandex.ru
+  author_url: ''
+  date: '2016-06-23 23:45:09 +0300'
+  date_gmt: '2016-06-23 19:45:09 +0300'
+  content: Спасибо, то что надо! Вы очень помогли =)
+---
+<p>Для того чтобы <strong>запретить доступ к&nbsp;<em>wp-admin<&#47;em><&#47;strong> без плагина&nbsp;всем пользователям с ролью <em>Подписчик<&#47;em> (<em>Subscriber<&#47;em>) необходимо в случаи захода <em>Подписчика<&#47;em>&nbsp;делать редирект на главную страницу. Для этого разместите в файле <em>functions.php<&#47;em>&nbsp;вашего&nbsp;шаблона после тега <em><?php<&#47;em> (или его сокращенного варианта <em><?<&#47;em>) следующий код:<br />
+[cce lang="php"]if (is_user_logged_in() &amp;&amp; is_admin())<br />
+{<br />
+	global $current_user;<br />
+	get_currentuserinfo();<br />
+	$user_info = get_userdata($current_user->ID);<br />
+	if ( $user_info->user_level == 0 )<br />
+	{<br />
+		wp_redirect(get_bloginfo('home'), 301);;<br />
+	}<br />
+}[&#47;cce]<br />
+Если вы не знаете как вставлять код или у вас возникли проблемы с этим, то читайте статью <a href="http:&#47;&#47;paperplane.su&#47;insert-functions-wordpress&#47;" title="Вставка кода в functions.php" target="_blank">вставка кода в functions.php<&#47;a>.</p>

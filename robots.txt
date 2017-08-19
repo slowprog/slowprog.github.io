@@ -1,0 +1,14 @@
+---
+# robotstxt.org/
+# The robots exclusion protocol
+
+layout: null
+disallows:
+  - "/posts.json"
+---
+
+User-agent: *
+Disallow:{% for disallowed in page.disallows %}
+Disallow: {{ disallowed }}{% endfor %}
+Sitemap: {{ site.url }}/sitemap.xml
+Host: {{ site.url | remove:'https://' | remove:'http://' }}

@@ -1,0 +1,67 @@
+//
+// Add custom styles
+//
+
+// Contact page Google Maps
+
+.mapWrapper {
+  @media (max-width: 767px) {
+    display: none !important;
+  }
+}
+
+// Set a size for our map container, the Google Map will take up 100% of this container
+#map-canvas {
+  width: 100%;
+  height: 350px;
+}
+
+
+// About and contact page social links
+
+.social-links {
+  padding-left: 0 !important;
+  margin-bottom: 10px;
+  margin-left: -10px;
+  font-family: $font-family-sans-serif;
+  font-size: 66%;
+  text-align: center;
+  list-style: none;
+
+  > li {
+    display: inline-block;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  a {
+    display: block;
+    color: rgba(0,0,0,.7);
+    background-image: none !important;
+
+    &:hover,
+    &:focus {
+      color: rgba(0,0,0,.8);
+    }
+
+    .svg-icon {
+      font-size: 3.33em;
+    }
+  }
+}
+
+.pgp-key {
+  font-family: $font-family-sans-serif;
+  font-size: 84%;
+  text-align: center;
+
+  a {
+    color: rgba(0,0,0,.7);
+    background-image: none !important;
+
+    &:hover,
+    &:focus {
+      color: rgba(0,0,0,.8);
+    }
+  }
+}

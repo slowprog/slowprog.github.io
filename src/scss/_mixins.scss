@@ -1,0 +1,18 @@
+// Mixins
+//
+// Custom mixins for the theme.
+
+@mixin theme-anchor-transition() {
+  transition: all 200ms ease;
+}
+
+@mixin btn-social-share() {
+  color: rgba(0,0,0,.6);
+  background-color: rgba(0,0,0,.05);
+
+  &:focus,
+  &:hover {
+    color: rgba(0,0,0,.6);
+    background-color: rgba(0,0,0,.1);
+  }
+}

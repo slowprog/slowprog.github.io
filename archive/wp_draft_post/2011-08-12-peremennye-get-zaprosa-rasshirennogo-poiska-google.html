@@ -1,0 +1,96 @@
+---
+layout: post
+status: publish
+published: true
+title: Переменные GET-запроса расширенного поиска Google
+author:
+  display_name: SlowProg
+  login: seoadmin
+  email: paperplanesu@rambler.ru
+  url: http://paperplane.su
+author_login: seoadmin
+author_email: paperplanesu@rambler.ru
+author_url: http://paperplane.su
+wordpress_id: 534
+wordpress_url: http://paperplane.su/?p=534
+date: '2011-08-12 16:21:39 +0400'
+date_gmt: '2011-08-12 16:21:39 +0400'
+categories:
+- Google
+tags:
+- google
+- поиск
+comments:
+- id: 266
+  author: Евгений
+  author_email: zking.nothingz@gmail.com
+  author_url: ''
+  date: '2011-09-26 16:26:05 +0400'
+  date_gmt: '2011-09-26 16:26:05 +0400'
+  content: Спасибо пригодилось.
+- id: 268
+  author: SlowProg (admin)
+  author_email: gilberthosting@gmail.com
+  author_url: http://paperplane.su
+  date: '2011-09-26 19:25:42 +0400'
+  date_gmt: '2011-09-26 19:25:42 +0400'
+  content: Рад, что смог помочь! Если не секрет, что хотите сделать?
+- id: 269
+  author: Евгений
+  author_email: zking.nothingz@gmail.com
+  author_url: ''
+  date: '2011-09-26 19:29:01 +0400'
+  date_gmt: '2011-09-26 19:29:01 +0400'
+  content: Парсер Сайтов на WP с поиском по ключевым словам.
+- id: 270
+  author: SlowProg (admin)
+  author_email: gilberthosting@gmail.com
+  author_url: http://paperplane.su
+  date: '2011-09-26 19:55:40 +0400'
+  date_gmt: '2011-09-26 19:55:40 +0400'
+  content: И если не секрет, с какой целью? Автоматическое наполнение сайтов контентом?
+    Или что-то более интересное? =)))
+- id: 271
+  author: Евгений
+  author_email: zking.nothingz@gmail.com
+  author_url: ''
+  date: '2011-09-26 20:43:50 +0400'
+  date_gmt: '2011-09-26 20:43:50 +0400'
+  content: Я просто разрабатываю скрипт для заказчика, я фрилансер и мне поступил
+    заказ на разработку скрипта и я занимаюсь этим.
+- id: 272
+  author: SlowProg (admin)
+  author_email: gilberthosting@gmail.com
+  author_url: http://paperplane.su
+  date: '2011-09-26 21:31:21 +0400'
+  date_gmt: '2011-09-26 21:31:21 +0400'
+  content: мМММ! понятно! обычный будний день фрилансера! Ну тогда желаю удачи в скорейшей
+    разработке скрипта =)
+---
+<p><a href="http:&#47;&#47;image.paperplane.su&#47;2011&#47;08&#47;google-search.png"><img class="alignleft size-medium wp-image-539" title="Переменные GET-запроса расширенного поиска Google" src="http:&#47;&#47;image.paperplane.su&#47;2011&#47;08&#47;google-search-300x300.png" alt="Переменные GET-запроса расширенного поиска Google" width="300" height="300" &#47;><&#47;a>Все мы пользуемся Google, но многие ли из нас пользовались <a title="Расширенный поиск Google" href="http:&#47;&#47;www.google.com&#47;advanced_search?hl=ru" rel="nofollow" target="_blank">Google Advanced Search<&#47;a>? Я думаю, что 90% пользователей даже не заходили на эту страницу. А ведь эта страница очень полезна. Она позволяет составлять логически сложные поисковые запросы, которые помогут отыскать в груде копипасты, то что вам нужно. Вообще, фактически, это анахронизм, оставшийся с тех времен, когда обычный поиск был несовершенный и хоть что-то найти можно было с помощью этого. Но даже в наши времена далеко не все так просто найти. Сегодня актуальна такая проблема, как копипаста контента. Все с друг друга копируют контент и когда начинаешь что-то искать, натыкаешься только на похожую информацию, довольно сложно порой бывает найти то что хочешь.</p>
+<p>Но в этой статье я не совсем об этом хочу вам рассказать. Расширенный поиск это конечно полезно, но что делать если я хочу сделать свой расширенный поиск с помощью Google. Совсем недавно мне пришлось решать эту специфическую задачу. Она сама по себе не сложная. Сделать форму примерно как в Google и по нажатию на кнопку "<strong>Поиск<&#47;strong>" отсылать GET-запрос в сам Google. Все бы хорошо, но какие переменные есть в GET-запросе поиска? Дык, вот чтобы вы не путались (как я) и сделали быстрее меня эту форму (а может решили еще какую задачу) &mdash; выкладываю все переменные вам на блюдечке с голубой каемочкой. Запрос будет начинаться с&nbsp;<em>http:&#47;&#47;www.google.com&#47;search?<&#47;em> и далее уже пойдут следующие переменные:</p>
+<ul>
+<li><strong>as_q<&#47;strong> &mdash;&nbsp;искать все слова<&#47;li>
+<li><strong>as_epq<&#47;strong> &mdash;&nbsp;искать точное совпадение фразы<&#47;li>
+<li><strong>as_oq<&#47;strong> &mdash;&nbsp;искать хотя бы одно из слов<&#47;li>
+<li><strong>as_eq<&#47;strong> &mdash;&nbsp;искать без этих слов<&#47;li>
+<li><strong>num<&#47;strong> &mdash;&nbsp;количество результатов<&#47;li>
+<li><strong>as_ft<&#47;strong> &mdash;&nbsp;включение&#47;исключение типов файлов определенных в переменной ниже (i = включить, e=исключить)<&#47;li>
+<li><strong>as_filetype<&#47;strong> &mdash;&nbsp;типа файлов pdf, ps, doc, xls, ppt, rtf<&#47;li>
+<li><strong>as_qdr<&#47;strong> &mdash;&nbsp;последнее обновление (m3 = 3 месяца, m6 = 6 месяцев, y = 1 год)<&#47;li>
+<li><strong>as_occt<&#47;strong> &mdash;&nbsp;место, где встречается запрос (title, body, url, links, any)<&#47;li>
+<li><strong>as_dt<&#47;strong> &mdash;&nbsp;включение&#47;исключение домена определенного в переменной ниже (i = включить, e=исключить)<&#47;li>
+<li><strong>as_sitesearch<&#47;strong> &mdash;&nbsp;домен в пределах которого искать (например yoursite.ru)<&#47;li>
+<li><strong>as_rights<&#47;strong> &mdash; права на использования (cc_publicdomain, cc_sharealike, cc_attribute, cc_nonderived, cc_noncommercial)<&#47;li>
+<li><strong>as_rq<&#47;strong> &mdash;&nbsp;похож на страницу (например yoursite.ru)<&#47;li>
+<li><strong>lr<&#47;strong> &mdash;&nbsp;язык разыскиваемой страницы (lang_ru, lang_en и т.д.)<&#47;li>
+<li><strong>as_lq<&#47;strong> &mdash;&nbsp;найти страницы ссылающиеся на указанную (например yoursite.ru)<&#47;li>
+<li><strong>safe=active<&#47;strong> &mdash;&nbsp;включить&#47;выключить безопасный поиск<&#47;li><br />
+<&#47;ul><br />
+Построение запросов достаточно простое. В случаи возникновения вопросов можно потестить форму Google и посмотреть как он составляет запросы, я думаю разберетесь. На всякий случай, приведу несколько примеров построение запросов в Google, их сразу можно вставить в адресную строку браузера:</p>
+<ul>
+<li>Найти сайты, которые ссылаются на мой сайт:&nbsp;<a title="Найти сайты, которые ссылаются на мой сайт" href="http:&#47;&#47;www.google.ru&#47;search?as_lq=paperplane.su" rel="nofollow" target="_blank">http:&#47;&#47;www.google.ru&#47;search?as_lq=paperplane.su<&#47;a><&#47;li>
+<li>Найти 10 PDF-документов, обновленных в последние 6 месяца по ключевому слову&nbsp;<em>seo<&#47;em>:&nbsp;<a title="Найти 10 PDF-документов, обновленных в последние 6 месяца о seo" href="http:&#47;&#47;www.google.ru&#47;search?as_q=seo&amp;num=10&amp;as_ft=i&amp;as_filetype=pdf&amp;as_qdr=m6" rel="nofollow" target="_blank">http:&#47;&#47;www.google.ru&#47;search?as_q=seo&amp;num=10&amp;as_ft=i&amp;as_filetype=pdf&amp;as_qdr=m6<&#47;a><&#47;li>
+<li>Найти на сайте&nbsp;wikipedia.org страницы на русском языке содержащие слово <em>seo<&#47;em>, но не содержащие слово <em>оптимизация<&#47;em>:&nbsp;<a title="Найти на сайте wikipedia.org страницы на русском языке содержащие слово seo, но не содержащие слово оптимизация" href="http:&#47;&#47;www.google.com&#47;search?q=seo+-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F+site%3Awikipedia.org&amp;hl=ru&amp;num=10&amp;lr=lang_ru" rel="nofollow" target="_blank">http:&#47;&#47;www.google.com&#47;search?q=seo+-оптимизация+site%3Awikipedia.org&amp;num=10&amp;lr=lang_ru<&#47;a><&#47;li><br />
+<&#47;ul><br />
+Надеюсь данная информация кому-нибудь поможет. На этом на все. Если будут какие-то вопросы то пишите в комментарии - постараюсь помочь чем смогу. Удачного вам поиска!</p>

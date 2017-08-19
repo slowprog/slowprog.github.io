@@ -1,0 +1,129 @@
+title: SlowProg
+description: "Писанина за разработку"
+url: http://slowprog.github.io
+
+logo:
+  path: "/assets/images/logo.png"
+  width: 300
+  height: 300
+
+image: "/assets/images/blog.jpg"
+theme_color: "#2196f3"
+
+author:
+  name: SlowProg
+  email: slowprog.home@gmail.com
+  uri: https://twitter.com/slowprog
+  avatar: "/assets/images/logo.png"
+  bio: "Люблю [говно]кодить, листать лалочки, спать и смотреть в окно."
+  facebook: 
+  twitter: slowprog
+  instagram: 
+  google_plus: 
+  linkedin: 
+  pinterest: 
+  tumblr: 
+  github: slowprog
+  keybase: 
+  street:
+  locality:
+  region:
+  postcode:
+  country:
+
+show_default_author: false
+
+disqus_shortname: slowprog
+
+google_cse_id: 000074065851338278325:aj4fn3myw_a # https://cse.google.com/all
+google_analytics_id:
+
+
+### Basic localisation (l10n)
+# If you customize the lang parameter, minima will try to use the strings in _data/locales/[lang].yml
+# Read https://github.com/jekyll/minima/README.md for more information.
+lang: ru
+
+# Even the day and month names will be translated. You can customize your date by
+# uncommenting the following line and customizing the date format:
+date_format: "%-d %B %Y"
+
+nav:
+  - title: Блог
+    url: "/blog/"
+  - title: Омне
+    url: "/about/"
+
+repository: slowprog/slowprog.github.io
+branch: master
+encoding: utf-8
+timezone: Europe/Moscow
+locale: ru_ru
+future: true
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  toc_levels: 1..3
+
+highlighter: rouge
+
+gist:
+  noscript: false
+
+paginate_path: "/blog/page:num/"
+paginate: 10
+
+permalink: "/:title/"
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true
+  - scope:
+      path: "assets/images/"
+    values:
+      sitemap: false
+  - scope:
+      path: "blog/"
+    values:
+      sitemap: false
+
+gems:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jekyll-sitemap
+
+compress_html:
+  clippings: all
+  comments: all
+  ignore:
+    envs: development
+  profile: false
+
+include:
+  - "_pages"
+
+exclude:
+  - README.md
+  - LICENSE
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+  - Gruntfile.js
+  - package.json
+  - npm-debug.log
+  - node_modules
+  - vendor
+  - bundle
+  - ".bundle"
+  - ".sass-cache"
+  - script
+  - src

@@ -1,0 +1,69 @@
+---
+layout: default
+description: "I'm a student living in Kathmandu, Nepal who loves getting lost in developing web, watching movies, and travelling new places."
+image: "/assets/images/hero.jpg"
+permalink: /
+---
+
+{% assign site_author = site.author.name | default: site.author | default: site.title | default: site.name %}
+{% if site_author %}
+  {% assign site_author = site_author | smartify | strip_html | strip_newlines | escape_once %}
+{% endif %}
+
+{% assign site_author_bio = site.author.bio | default: site.description %}
+{% if site_author_bio %}
+  {% assign site_author_bio = site_author_bio | smartify | strip_html | strip_newlines | truncate: 160 | escape_once %}
+{% endif %}
+
+{% assign site_author_avatar = site.author.avatar | default: site.logo.path | default: site.logo %}
+{% if site_author_avatar %}
+  {% assign site_author_avatar = site_author_avatar | escape %}
+{% endif %}
+
+{% assign page_image = page.image.path | default: page.image %}
+{% if page_image %}
+  {% assign page_image = page_image | escape %}
+{% endif %}
+
+<!-- Hero container -->
+<main class="hero-container is-loading" style="background-image: linear-gradient(45deg, rgba(3,28,25,0.769) 0%, rgba(8,28,59,0.78) 100%), url('{{ page_image }}');" role="main" itemprop="mainContentOfPage">
+  <!-- Hero profile -->
+  <section class="hero-profile is-loading" itemscope itemtype="https://schema.org/Person">
+    <div class="hero-profileInner">
+      <link itemprop="url" href="/">
+      <header>
+        <span class="hero-avatar">
+          <img class="hero-avatarImage" itemprop="image" src="{{ site_author_avatar }}" alt="{{ site_author }}">
+        </span>
+        <h1 class="hero-title" itemprop="name">{{ site_author }}</h1>
+        <p class="hero-description" itemprop="description">{{ site_author_bio }}</p>
+
+        {% if site.author %}
+          <span hidden="true" itemprop="homeLocation" itemscope itemtype="https://schema.org/PostalAddress">
+            {% if site.author.street %}<meta itemprop="streetAddress" content="{{ site.author.street }}">{% endif %}
+            {% if site.author.locality %}<meta itemprop="addressLocality" content="{{ site.author.locality }}">{% endif %}
+            {% if site.author.region %}<meta itemprop="addressRegion" content="{{ site.author.region }}">{% endif %}
+            {% if site.author.postcode %}<meta itemprop="postalCode" content="{{ site.author.postcode }}">{% endif %}
+            {% if site.author.country %}<meta itemprop="addressCountry" content="{{ site.author.country }}">{% endif %}
+          </span><!-- /itemscope itemtype PostalAddress -->
+        {% endif %}
+      </header>
+
+      <footer>
+        <ul class="hero-social">
+          {% if site.author.twitter %}<li><a itemprop="sameAs" rel="me" href="//twitter.com/{{ site.author.twitter }}" class="icon-twitter"><svg aria-hidden="true"><use xlink:href="/assets/icons/icons.min.svg#icon-twitter"></use></svg><span class="label">Twitter</span></a></li>{% endif %}
+          {% if site.author.instagram %}<li><a itemprop="sameAs" rel="me" href="//instagram.com/{{ site.author.instagram }}" class="icon-instagram"><svg aria-hidden="true"><use xlink:href="/assets/icons/icons.min.svg#icon-instagram"></use></svg><span class="label">Instagram</span></a></li>{% endif %}
+          {% if site.author.github %}<li><a itemprop="sameAs" rel="me" href="//github.com/{{ site.author.github }}" class="icon-github"><svg aria-hidden="true"><use xlink:href="/assets/icons/icons.min.svg#icon-github"></use></svg><span class="label">GitHub</span></a></li>{% endif %}
+        </ul>
+
+        {% if site.author.facebook %}<link itemprop="sameAs" rel="me" href="//www.facebook.com/{{ site.author.facebook }}">{% endif %}
+        {% if site.author.google_plus %}<link itemprop="sameAs" rel="me" href="//plus.google.com/+{{ site.author.google_plus }}">{% endif %}
+        {% if site.author.youtube %}<link itemprop="sameAs" rel="me" href="//www.youtube.com/{{ site.author.youtube }}">{% endif %}
+        {% if site.author.linkedin %}<link itemprop="sameAs" rel="me" href="//www.linkedin.com/in/{{ site.author.linkedin }}">{% endif %}
+        {% if site.author.pinterest %}<link itemprop="sameAs" rel="me" href="//www.pinterest.com/{{ site.author.pinterest }}">{% endif %}
+        {% if site.author.keybase %}<link itemprop="sameAs" rel="me" href="//keybase.io/{{ site.author.keybase }}">{% endif %}
+        {% if site.author.tumblr %}<link itemprop="sameAs" rel="me" href="http://{{ site.author.tumblr }}.tumblr.com">{% endif %}
+      </footer>
+    </div><!-- /.hero-profileInner -->
+  </section><!-- /.hero-content -->
+</main><!-- /.hero-container -->

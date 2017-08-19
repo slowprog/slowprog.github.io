@@ -1,0 +1,214 @@
+//
+// Theme layout design
+//
+
+// Middot divider
+
+.middotDivider {
+  display: inline-block;
+  padding: 0 .42em;
+}
+
+.middotDivider::after {
+  content: "\00b7"; // "·"
+}
+
+
+// Page content
+
+.pageContent,
+.postArticle {
+  margin-top: 49px;
+  transform: translateZ(0);
+
+  @media (min-width: 768px) {
+    margin-top: 64px;
+  }
+}
+
+
+// Page header
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 60px;
+  color: #fff;
+  text-align: center;
+  background-attachment: scroll;
+  background-color: #fff;
+  // NOTE: Background images are set within the HTML using inline CSS!
+  // background-image: linear-gradient(to top, rgba(0,0,0,.44), rgba(0,0,0,.44)), url('/assets/images/page.jpg');
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+
+  @media (min-width: 768px) {
+    height: 430px;
+    margin-bottom: 80px;
+  }
+}
+
+.pageHeader-introDivider {
+  max-width: 100px;
+  margin: 15px auto;
+  border-color: #fff;
+  border-width: 4px;
+}
+
+.pageHeader-title {
+  // margin-top: 0;
+  font-family: $font-family-sans-serif;
+  font-size: 48px;
+  letter-spacing: -.04em;
+  text-shadow: 0 1px rgba(0,0,0,.2);
+
+  @media (min-width: 768px) {
+    font-size: 72px;
+  }
+}
+
+.pageHeader-description {
+  display: block;
+  margin: 10px 0 0;
+  font-family: $font-family-sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: rgba(255,255,255,.7);
+
+  @media (min-width: 768px) {
+    font-size: 22px;
+  }
+}
+
+
+// Override styles for pagination
+
+.paginatorHeader {
+  height: 175px;
+
+  @media (min-width: 768px) {
+    height: 300px;
+  }
+}
+
+.paginatorHeader-introDivider {
+  border-width: 2px;
+
+  @media (min-width: 768px) {
+    border-width: 3px;
+  }
+}
+
+.paginatorHeader-title {
+  font-size: 40px;
+
+  @media (min-width: 768px) {
+    font-size: 58px;
+  }
+}
+
+.paginatorHeader-description {
+  font-size: 18px;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+// Page body
+
+.pageBody {
+  margin-bottom: 50px;
+}
+
+
+// Site page footer
+
+.siteFooter {
+  padding: 50px 0 40px;
+  // margin-top: 40px;
+  text-align: center;
+  background-color: #fafafa;
+
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .icon-cc-by {
+    margin-left: 4px;
+    font-size: 21px;
+    vertical-align: bottom;
+  }
+  
+  @media (min-width: 768px) {
+    padding: 60px 0 50px;
+  }
+}
+
+.siteFooter-social {
+  padding-left: 0;
+  margin-left: -5px;
+  list-style: none;
+
+  > li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5em;
+    height: 2.5em;
+    color: rgba(0,0,0,.7);
+    background-color: rgba(0,0,0,.7);
+    border-radius: 100%;
+
+    &:hover,
+    &:focus {
+      color: rgba(0,0,0,.8);
+      background-color: rgba(0,0,0,.8);
+    }
+
+    svg {
+      display: block;
+      width: 60%;
+      height: 60%;
+      fill: #fff;
+    }
+  }
+
+  .label {
+    display: none;
+  }
+}
+
+.siteFooter-legal {
+  margin-top: 30px;
+  // margin-bottom: 0;
+  font-family: $font-family-base;
+  font-size: 14px;
+  color: rgba(0,0,0,.6);
+  text-rendering: auto;
+
+  a {
+    // text-decoration: underline;
+    // color: inherit;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+      // color: inherit;
+    }
+  }
+}

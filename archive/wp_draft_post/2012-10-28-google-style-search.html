@@ -1,0 +1,216 @@
+---
+layout: post
+status: publish
+published: true
+title: Создание строки поиска, как в Google
+author:
+  display_name: SlowProg
+  login: seoadmin
+  email: paperplanesu@rambler.ru
+  url: http://paperplane.su
+author_login: seoadmin
+author_email: paperplanesu@rambler.ru
+author_url: http://paperplane.su
+wordpress_id: 2612
+wordpress_url: http://paperplane.su/?p=2612
+date: '2012-10-28 03:57:01 +0400'
+date_gmt: '2012-10-27 23:57:01 +0400'
+categories:
+- Дизайн
+tags:
+- поиск
+- формы
+- динамика
+comments:
+- id: 101693
+  author: ТОха
+  author_email: onjeerss@gmail.com
+  author_url: http://onjee.ru
+  date: '2012-10-29 13:24:03 +0400'
+  date_gmt: '2012-10-29 09:24:03 +0400'
+  content: Крестик для удаления поисковой фразы - крутая тема)
+- id: 101694
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-10-29 13:25:27 +0400'
+  date_gmt: '2012-10-29 09:25:27 +0400'
+  content: Да, да! и самое крутое, что этот крестик можно заменить на другие юзабильные
+    штучки, типа выпадающего меню, в котором можно произвести настройку поиска =))))
+- id: 101720
+  author: ТОха
+  author_email: onjeerss@gmail.com
+  author_url: http://onjee.ru
+  date: '2012-10-29 14:35:33 +0400'
+  date_gmt: '2012-10-29 10:35:33 +0400'
+  content: Не, мне впринципе  такой дикий функционал не к чему,  а вот крестик  для
+    блога стоит заюзать) Спасибо тебе. Я уже спер твой топ комментаторов,   еще и
+    крестик  сопру.
+- id: 101730
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-10-29 15:03:30 +0400'
+  date_gmt: '2012-10-29 11:03:30 +0400'
+  content: Окей окей =) Порадуй свои читателей крестиком =)
+- id: 101736
+  author: ТОха
+  author_email: onjeerss@gmail.com
+  author_url: http://onjee.ru
+  date: '2012-10-29 15:36:00 +0400'
+  date_gmt: '2012-10-29 11:36:00 +0400'
+  content: Да, только диз надо сменить - а  то этот достал уже.
+- id: 101755
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-10-29 19:25:37 +0400'
+  date_gmt: '2012-10-29 15:25:37 +0400'
+  content: Да вроде норм диз. Чем плох? Относительно локаничный, ненагруженный и светлый.
+    Мне нравится. Вот свой меня уже точно достал, свой я считаю довольно тяжелым и
+    отвлекающим от контента =)) Хотя руки вряд ли дойдут до смены =)
+- id: 249974
+  author: Антон
+  author_email: onjeerss@gmail.com
+  author_url: ''
+  date: '2015-05-09 20:32:24 +0300'
+  date_gmt: '2015-05-09 16:32:24 +0300'
+  content: Все работает, но если я перезагружаю страницу и в поле остается текст -
+    крестик все равно пропадает. Как это пофиксить?
+- id: 249975
+  author: Антон
+  author_email: onjeerss@gmail.com
+  author_url: ''
+  date: '2015-05-09 20:33:06 +0300'
+  date_gmt: '2015-05-09 16:33:06 +0300'
+  content: Спустя 3 года решил реализовать )))
+- id: 250237
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2015-05-15 18:01:10 +0300'
+  date_gmt: '2015-05-15 14:01:10 +0300'
+  content: "Наверно поможет вызов события нажатия клавиши после его определения. Что-то
+    типа того:\r\n\r\n<code>$(\"#field\").keyup(function() {\r\n    $(\"#x\").fadeIn();\r\n
+    \   if ($.trim($(\"#field\").val()) == \"\") {\r\n        $(\"#x\").fadeOut();\r\n
+    \   }\r\n}).keyup();<&#47;code>\r\n\r\nНе проверял, но вроде как должно работать."
+- id: 250646
+  author: Антон
+  author_email: onjeerss@gmail.com
+  author_url: ''
+  date: '2015-05-24 11:38:28 +0300'
+  date_gmt: '2015-05-24 07:38:28 +0300'
+  content: "Плохое решение. При каждой перезагрузке страницы крестик появляется а
+    потом исчезает - если ничего не введено в поле. На сколько я знаю - нужно проверять
+    в поле - забиты ли данные и если забиты по оставлять крестик. Я просто не шарю
+    в JS и не могу сделать. \r\n\r\nБез возможности сохранения крестика после перезагрузки
+    страницы - весь функционал становится бесполезным"
+- id: 250648
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2015-05-24 12:42:23 +0300'
+  date_gmt: '2015-05-24 08:42:23 +0300'
+  content: "Проверку можно запихать с помощью php. Брать переменную, что отвечает
+    за это поле, если в ней что-то есть, то к крестику дописываем:\r\n\r\n<code>style=\"display:inline;\"<&#47;code>"
+- id: 251211
+  author: Антон
+  author_email: Onjeerss@gmail.com
+  author_url: ''
+  date: '2015-06-06 12:07:03 +0300'
+  date_gmt: '2015-06-06 08:07:03 +0300'
+  content: Не работает предложенное тобой решение. При перезагрузке поля он пропадает.
+    Соответственно его ценность на данном этапе равна нулю. На мобильных устройствах
+    пользоваться не возможно. Не хочешь довести до ума скрипт в рамках статьи, или
+    персонально для меня за $. Я бы не парился конечно - но твой вариант единственный
+    работающий на моем сайте.
+---
+<p><a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;10&#47;google-style-search.png"><img class="alignleft size-medium wp-image-2613" title="Создание строки поиска, как в Google" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;10&#47;google-style-search-300x300.png" alt="Создание строки поиска, как в Google" width="300" height="300" &#47;><&#47;a>Google всегда отличался своим минималистичным дизайном и удобными фичами. Не секрет, что многие в своих проектах хотят скопировать некоторые элементы дизайна этой поисковой системы и не безосновательно. Думаю каждый знает какая удобная строка поиска у Google. И я вам расскажу как её можно сделать без особого труда с применением несложного комбинированного кода HTML, CSS и jQuery.</p>
+<p>Как я думаю, каждый помнит, в поле ввода поиска Google есть активный элемент (кнопочка) в правам углу. Раньше это был крестик, который удалял введенную строку, и при этом сам исчезал если строк пуста. Сейчас на месте крестика находится клавиатура, при нажатии на которую появляется виртуальная клавиатура для набора запроса мышкой. В рамках данного мануала будет реализован старый вариант с крестиком, т.к. клавиатура это еще дополнительно много кода. Да и к тому же на место этой кнопки можно поставить вообще любую функцию на своё усмотрение. Крестик будет легко реализован с помощью всего нескольких строк jQuery, которые будут отчищать поле при клике на кнопку и убирать кнопку, если поле пустое.</p>
+<p>Так же будут предоставлены CSS-стили для клонирования красивой кнопки Гугла. Так что к концу мануала вы будете иметь идентичную строку поиска для своих проектов, в которых вы несомненно хоть немного измените эти стили, чтобы не палиться, я надеюсь.</p>
+<h2>HTML<&#47;h2><br />
+Для начала напишем html-код создающий форму, строку поиска, крестик для удаления текста и кнопку сабмита. Все это добро мы поместим в контейнер <em>div<&#47;em>.<br />
+[cce lang="html"]
+<div id="search">
+<form>
+        <input id="field" name="field" type="text" &#47;></p>
+<div id="delete"><span id="x">x<&#47;span><&#47;div><br />
+        <input id="submit" name="submit" type="submit" value="Поиск" &#47;><br />
+    <&#47;form><br />
+<&#47;div>[&#47;cce]</p>
+<h2>CSS<&#47;h2><br />
+Теперь настроим внешний вид формы, как у Google, с помощью стилей CSS. Обратите внимание, что в стилях используется картинка - иконка лупы. Её вы можете скачать вместе со всем кодом внизу статьи или вставить на её место любую другую картинку под свой дизайн.<br />
+[cc lang="css"]#search {<br />
+    margin:20px;<br />
+}</p>
+<p>#field {<br />
+    float:left;<br />
+    width:400px;<br />
+    height:27px;<br />
+    line-height:27px;<br />
+    text-indent:10px;<br />
+    font-family:arial, sans-serif;<br />
+    font-size:22px;<br />
+    color:#333;<br />
+    background: #fff;<br />
+    border:solid 1px #d9d9d9;<br />
+    border-top:solid 1px #c0c0c0;<br />
+    border-right:none;<br />
+    outline: none;<br />
+}</p>
+<p>#delete {<br />
+    float:left;<br />
+    width:16px;<br />
+    height:29px;<br />
+    line-height:23px;<br />
+    margin-right:15px;<br />
+    padding:0 10px 0 10px;<br />
+    font-family: "Lucida Sans", "Lucida Sans Unicode",sans-serif;<br />
+    font-size:22px;<br />
+    background: #fff;<br />
+    border:solid 1px #d9d9d9;<br />
+    border-top:solid 1px #c0c0c0;<br />
+    border-left:none;<br />
+}</p>
+<p>#delete #x {<br />
+    color:#A1B9ED;<br />
+    cursor:pointer;<br />
+    display:none;<br />
+}</p>
+<p>#delete #x:hover {<br />
+    color:#36c;<br />
+}</p>
+<p>#submit {<br />
+    cursor:pointer;<br />
+    width:70px;<br />
+    height: 29px;<br />
+    line-height:0;<br />
+    font-size:0;<br />
+    text-indent:-999px;<br />
+    color: transparent;<br />
+    background: url("search.png") no-repeat #4d90fe center;<br />
+    border: 1px solid #3079ED;<br />
+    -moz-border-radius: 2px;<br />
+    -webkit-border-radius: 2px;<br />
+}</p>
+<p>#submit:hover {<br />
+    background: url("search.png") no-repeat center #357AE8;<br />
+    border: 1px solid #2F5BB7;<br />
+}[&#47;cc]</p>
+<h2>JavaScript<&#47;h2><br />
+Теперь осталось наладить динамику форму. Фактически, она состоит из двух частей, о которых я уже говорил ранее. Во-первых, нужно обыграть появление и исчезновение кнопки. В случае, если произойдет событие <em>KeyUp<&#47;em> в поле ввода строки поиска, то сделать кнопку видимой или невидимой, если поле пусто. Во-вторых, нужно обработать событие клика по кнопке очистки поля ввода. После очистки поля ввода так же необходимо скрыть саму кнопку.<br />
+[cc lang="js"]$(document).ready(function() {<br />
+    $("#field").keyup(function() {<br />
+        $("#x").fadeIn();<br />
+        if ($.trim($("#field").val()) == "") {<br />
+            $("#x").fadeOut();<br />
+        }<br />
+    });</p>
+<p>    $("#x").click(function() {<br />
+        $("#field").val("");<br />
+        $(this).hide();<br />
+    });<br />
+});[&#47;cc]</p>
+<div class="aligncenter"><a class="button button_demo" href="http:&#47;&#47;image.paperplane.su&#47;demo&#47;google-style-search&#47;index.html" target="_blank">Демо<&#47;a><a class="button button_demo" href="http:&#47;&#47;image.paperplane.su&#47;demo&#47;google-style-search&#47;source.zip" target="_blank">Скачать<&#47;a><&#47;div><br />
+Теперь <strong>форма поиска, как у Google<&#47;strong> готова. Этот результат был достигнут совсем с небольшим количеством кода, который к тому же является достаточно элементарным. Этот код вы можете использовать на любом своем сайте при формировании HTML-кода своего шаблона. Стили легко изменяются и подстраиваются под ваш конкретный дизайн.</p>
+<p>На этом на сегодня все, надеюсь эта форма вам пригодится. Если будут вопросы, пожелания или предложения, то прошу всё в комментарии. Удачи!</p>
