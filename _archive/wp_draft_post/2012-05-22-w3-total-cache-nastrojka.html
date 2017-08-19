@@ -1,0 +1,932 @@
+---
+layout: post
+status: publish
+published: true
+title: 'W3 Total Cache настройка '
+author:
+  display_name: SlowProg
+  login: seoadmin
+  email: paperplanesu@rambler.ru
+  url: http://paperplane.su
+author_login: seoadmin
+author_email: paperplanesu@rambler.ru
+author_url: http://paperplane.su
+wordpress_id: 2441
+wordpress_url: http://paperplane.su/?p=2441
+date: '2012-05-22 12:32:47 +0400'
+date_gmt: '2012-05-22 08:32:47 +0400'
+categories:
+- Плагины
+tags:
+- ускорение
+- кэширование
+comments:
+- id: 105117
+  author: Александр
+  author_email: dark-sanek@yandex.ru
+  author_url: http://webexpertu.ru/
+  date: '2012-11-03 13:55:03 +0400'
+  date_gmt: '2012-11-03 09:55:03 +0400'
+  content: "У меня почему-то при попытке сохранить настройки выдает ошибку:\r\n\r\nFatal
+    error: Class 'CrayonErrorException' not found in &#47;home&#47;s&#47;snakers555&#47;public_html&#47;wp-content&#47;plugins&#47;w3-total-cache&#47;lib&#47;W3&#47;Plugin&#47;PgCacheAdmin.php
+    on line 136"
+- id: 105127
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-11-03 14:08:20 +0400'
+  date_gmt: '2012-11-03 10:08:20 +0400'
+  content: "Сложно сказать. Это уже к разработчикам с таким вопросом нужно обращаться.
+    Но в целях профилактики попробуйте переустановить плагин, может при установки
+    совершили ошибку (там ведь не самый обычный алгоритм). Так же попробуйте различные
+    комбинации настроек, может какая-нибудь прокатит (хотя это не решение конечно).
+    \n\nА разрабам можно написать на <a href=\"http:&#47;&#47;wordpress.org&#47;support&#47;plugin&#47;w3-total-cache\"
+    target=\"_blank\" rel=\"nofollow\">этой странице<&#47;a>. Нужно зарегистрироваться.
+    И там по английски, надеюсь у вас с ним норм, но в любом случаи всегда можно юзать
+    гугл переводчик - он достаточно хорош."
+- id: 105138
+  author: Александр
+  author_email: dark-sanek@yandex.ru
+  author_url: http://webexpertu.ru/
+  date: '2012-11-03 14:22:30 +0400'
+  date_gmt: '2012-11-03 10:22:30 +0400'
+  content: Спасибо за совет, надеюсь получится все исправить, потому что плагин просто
+    великолепен.
+- id: 114063
+  author: Стас
+  author_email: bergos.reg@gmail.com
+  author_url: ''
+  date: '2012-11-16 00:49:06 +0400'
+  date_gmt: '2012-11-15 20:49:06 +0400'
+  content: Классная статья! Спасибо!
+- id: 114108
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-11-16 01:26:52 +0400'
+  date_gmt: '2012-11-15 21:26:52 +0400'
+  content: Всегда рад ;)
+- id: 117042
+  author: Анастасия
+  author_email: kona1980@bk.ru
+  author_url: http://mylivingfood.ru/
+  date: '2012-11-18 07:34:33 +0400'
+  date_gmt: '2012-11-18 03:34:33 +0400'
+  content: Ух ты! Вот это, наверное, самая подробная статья по настройке, которую
+    я когда-либо читала! Спасибо! Тест на скорость сразу увеличился на 10% - уже неплохо,
+    да?!
+- id: 117274
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-11-18 12:02:14 +0400'
+  date_gmt: '2012-11-18 08:02:14 +0400'
+  content: Неплохо, но наверно можно и больше. Правда скорость не единственный плюс,
+    еще не забывайте об уменьшении трафика (размера сайта при загрузке), что тоже
+    влияет на скорость.
+- id: 117312
+  author: Анастасия
+  author_email: kona1980@bk.ru
+  author_url: http://mylivingfood.ru/
+  date: '2012-11-18 12:45:23 +0400'
+  date_gmt: '2012-11-18 08:45:23 +0400'
+  content: Надеюсь, благодаря Вашему сайту, смогу разобраться во всех премудростях...
+    Потому что пока - "темный лес"... Еще раз спасибо за ценные советы и качественный
+    контент!
+- id: 117314
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-11-18 12:46:02 +0400'
+  date_gmt: '2012-11-18 08:46:02 +0400'
+  content: Всегда рад. Обращайтесь =)
+- id: 119352
+  author: Den
+  author_email: noname@mail.ru
+  author_url: ''
+  date: '2012-11-21 23:21:00 +0400'
+  date_gmt: '2012-11-21 19:21:00 +0400'
+  content: 5 часов это 18000 секунд.
+- id: 119353
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-11-21 23:25:39 +0400'
+  date_gmt: '2012-11-21 19:25:39 +0400'
+  content: Оп! Виноват. Либо единичка два раза не пропечаталась, либо я ступил. Скорее
+    второе. Поправил. Спасибо!
+- id: 121015
+  author: Sergey
+  author_email: basay93@gmail.com
+  author_url: http://www.progiinfo.net
+  date: '2012-11-25 01:44:09 +0400'
+  date_gmt: '2012-11-24 21:44:09 +0400'
+  content: "Спасибо за подробное описание установки.У меня выдает ошибки-\r\n1It appears
+    Page Cache URL rewriting is not working. If using apache, verify that the server
+    configuration allows .htaccess or if using nginx verify all configuration files
+    are included in the configuration.\r\n2It appears Minify URL rewriting is not
+    working. If using apache, verify that the server configuration allows .htaccess
+    or if using nginx verify all configuration files are included in the configuration.\r\n3Content
+    Delivery Network Error: The \"Replace default hostname with\" field must be populated.
+    Enter CDN provider hostname. (This is the hostname used in order to view objects
+    in a browser.)\r\nПодскажите,плиз,что я сделал не правильно.Можно в личку."
+- id: 121061
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-11-25 02:32:07 +0400'
+  date_gmt: '2012-11-24 22:32:07 +0400'
+  content: |-
+    Рекомендую, всегда сперва искать свои ошибки в поисковика. Я более чем уверен, что все ошибки, которые вы встретите в WordPress, уже кто-то до вас встречал и скорее всего решение было найдено.
+
+    1) Первая и вторая ошибка решается в этом <a rel="nofollow" href="http:&#47;&#47;www.mkyong.com&#47;blog&#47;w3-total-cache-page-cache-url-rewriting-is-not-working&#47;" target="_blank" rel="nofollow">посте<&#47;a>. Как я понял, проблема в правах доступа к .htaccess или в невозможности его использования. Ну в общем подробней в статье.
+
+    2) Третья ошибка, я так понял, возникла потому что вы включили модуль CDN, отключите его.
+- id: 123651
+  author: Sergey
+  author_email: basay93@gmail.com
+  author_url: http://www.progiinfo.net
+  date: '2012-11-27 20:12:09 +0400'
+  date_gmt: '2012-11-27 16:12:09 +0400'
+  content: Спасибо за совет.Все получилось,плагин работает.
+- id: 123652
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-11-27 20:12:45 +0400'
+  date_gmt: '2012-11-27 16:12:45 +0400'
+  content: Отлично =) Я рад, что помог =)
+- id: 132130
+  author: skv
+  author_email: sexsonne@yandex.ru
+  author_url: http://dumaidelai.ru/
+  date: '2013-01-04 23:03:48 +0400'
+  date_gmt: '2013-01-04 19:03:48 +0400'
+  content: Приветствую!! что то у меня скорость не ахти 4- 9 секунд главная грузиться
+    как с плагином W3 Total Cache так и без него без него даже быстрее)) надо думать...
+- id: 132138
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-01-04 23:53:51 +0400'
+  date_gmt: '2013-01-04 19:53:51 +0400'
+  content: ХМ хм, бывает иногда и такое. Наверно едло в хостинге, в каких-то конкретных
+    настройках апача или пхп. Надо подергать за настройки плагина в разные стороны,
+    может чего и выйдет =) В противном случаи удалить и ладно. Такое бывает иногда
+    =)
+- id: 132141
+  author: skv
+  author_email: sexsonne@yandex.ru
+  author_url: http://dumaidelai.ru/
+  date: '2013-01-05 00:00:50 +0400'
+  date_gmt: '2013-01-04 20:00:50 +0400'
+  content: Прикольно!! обновил ворд пресс и скорость увеличилась в 2 раза то есть
+    уже 3-4 сек)) еще немного и я попедю!!!
+- id: 135663
+  author: Оптимизируем сайт на Wordpress - необходимый минимум &#183; klarinia.info
+  author_email: ''
+  author_url: http://klarinia.info/optimiziruem-sajt-na-wordpress-neobxodimyj-minimum/
+  date: '2013-02-02 13:44:44 +0400'
+  date_gmt: '2013-02-02 09:44:44 +0400'
+  content: "[...] А&nbsp;как его установить, настроить и&nbsp;использовать, почитайте
+    в&nbsp;специальной умной статье тут: W3&nbsp;Total Cache настройка [...]"
+- id: 141231
+  author: Дмитрий
+  author_email: 1-dimka@mail.ru
+  author_url: ''
+  date: '2013-03-18 00:36:58 +0400'
+  date_gmt: '2013-03-17 20:36:58 +0400'
+  content: Molodet', kruto vso cotko i neatno, uvojuha))))))))
+- id: 142736
+  author: Вася
+  author_email: felix0808@yandex.ru
+  author_url: ''
+  date: '2013-03-31 12:18:41 +0400'
+  date_gmt: '2013-03-31 08:18:41 +0400'
+  content: "Не пойму в чем дело, вроде все настроил, но при анализе  page speed выдает
+    красным\r\n\"используйте кеш браузера\" и кучу картинок, css и js файлов с сроком
+    хранения 1 день\r\nвсе файлы вида http:&#47;&#47;site.ru&#47;images&#47;kartinka.jpg?d5401f\r\nстоит
+    клаудфларе, мб это из за него?"
+- id: 142796
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-04-01 01:10:23 +0400'
+  date_gmt: '2013-03-31 21:10:23 +0400'
+  content: Попробовал у себя и у меня так же. Кэш браузера на картинки включен, но
+    в заголовках приходит то, что кешировать не надо. Вначале я удивился, а потом
+    неожиданно меня осенило. У меня так происходит т.к. сервер который отдаёт всю
+    статику (картинки, js и css) является nginx, а не apache, потому директивы, которые
+    пишет W3 Total Chache в .htaccess не возымеют никакого действия, т.к. они только
+    для apache. Такие дела! Скорее всего на вашем сервере картинки (и остальное) так
+    же отдаёт nginx. Если вы укажите домен, то я скажу точно.
+- id: 144252
+  author: Алексей
+  author_email: blogfiscal@yandex.ru
+  author_url: http://blogfiscal.ru
+  date: '2013-04-09 06:09:13 +0400'
+  date_gmt: '2013-04-09 02:09:13 +0400'
+  content: Здравствуйте. С такой проблемой столкнулся. Этот плагин в блоге с посещаемостью
+    около 3500 в сутки выдал следующий ляп. Включил плагин - кэш страниц, базы, объектов
+    и браузера. Так он за час насоздал кэша на 800 мб. У меня сайт до этого занимал
+    700 метров из 1400 доступных, а после установки плагина 1500. Не сразу заметил
+    неладное, случайно просто решил проверить дисковое пространство. Как лучше настроить?
+    Имеет смысл увеличить место для хостинга?
+- id: 144301
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-04-09 10:00:23 +0400'
+  date_gmt: '2013-04-09 06:00:23 +0400'
+  content: |-
+    Место занимают Page Cache, Minify, Database Cache и Object Cache. Советую оптимальную комбинацию настроек выявить опытным путём. Найдите инструмент, чтобы проверять время загрузки страниц (например, <a href="http:&#47;&#47;tools.pingdom.com&#47;fpt&#47;" target="_blank" rel="nofollow">этот<&#47;a>, только выберите там сервер из амстердама в настройках под формой), высвободите для себя пару часов и экспериментируйте: в начале отключайте по очереди каждый из кешей, может быть окажется, что какой-то из них совсем бесполезен и почти не прибавляет скорости. Потом в таком же духе индивидуально экспериментируйте над каждым кешем отключая и включая его настройки.
+
+    Иначе я вам не смогу никак сказать какие настройки вам нужны, а какие нет, т.к. для каждого хостинга это индивидуально. В конечном итоге останутся только те настройки, которые максимально увеличивают производительность. Может тогда у вас побольше места свободного будет =)
+- id: 153809
+  author: Fil
+  author_email: hello@fishkalife.ru
+  author_url: http://fishkalife.ru/
+  date: '2013-05-05 23:59:01 +0400'
+  date_gmt: '2013-05-05 19:59:01 +0400'
+  content: "Отличная статья, наверно даже лучшая))) - битый час сидел настраивал.
+    \r\nВопросики накопились с этим кешом:\r\n1.где такая опция стоит, чтобы не сбрасывались
+    вводимые данные комментатора:  e-mail, сайт...?\r\n2. Этому сервису можно доверять?,а
+    то раньше было 4-5 сек http:&#47;&#47;tools.pingdom.com&#47;fpt&#47;#!&#47;KJGMBMEvZ&#47;http:&#47;&#47;fishkalife.ru&#47;\r\n3.
+    Еще при начальной загрузке, кеш строит карту какую-то, так  как вначале пауза
+    большая, зато при повторном-как ракета?\r\n4.А какие-нибудь дрeubt отличные плагны
+    есть такие, попроще?\r\n5. Не могли бы Вы посмотреть наш сайт на тормознутость,
+    потыкать, а то уже паранойя.\r\nСпасибо..."
+- id: 153814
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-05-06 00:55:22 +0400'
+  date_gmt: '2013-05-05 20:55:22 +0400'
+  content: |-
+    1) Вроде такой опции нет, если я ничего не путаю. WordPress сам в кукисах браузера сохраняет эти данные. Т.е. при смене браузера, компьютера, сбросе кукисов и др. нужно вводить их заново.
+
+    2) Этому сервису можно доверять, на мой взгляд он один из лучших. Your website is faster than 68% of all tested websites. Думаю это выше нормы =)
+
+    3) Вначале строится кеш, а потом всё из него грузится. Это обычное положение вещей. Всегда и везде вначале кеш нужно сформировать, что какправило происходит долго, а потом всё летает, т.к. более страницы не формируются, а берутся напрямую из кеша (готовые).
+
+    4) Из популярных есть ещё WP Super Cache и Hyper Cache. Второй я не юзал, а первый юзал. Были проблемы с WP Super Cache. Щас не припомню какие, давно было, но когда перешёл на W3 Total Cache сразу стало всё лучше.
+
+    5) С вашим быстродействием всё в поряде. Думаю, особо панику можно не наводить. Но с ходу могу сказать, что:
+        - у вас на странице подключается два раза jQuery. Лучше это делать один раз, т.к. они могут вызвать между собой конфликт, и это увеличивает время загрузки страницы;
+        - можете включить использование кеша для браузеров (это в плагине browser cache).
+        - если хостинг позволяет, то включить минимизацию ресурсов (это в плагине minify).
+        - ещё бы сжатие ресурсов посредством gzip включить если сумеете (это по разному можно, но уже не с помощью плагина).
+
+    Но в целом, со скоростями всё более менее нормально. Повторяю, что панику можно не паниковать, но если выполните рекомендации выше, то будет совсем хорошо =)
+- id: 153929
+  author: Fil
+  author_email: hello@fishkalife.ru
+  author_url: http://fishkalife.ru/
+  date: '2013-05-06 18:16:00 +0400'
+  date_gmt: '2013-05-06 14:16:00 +0400'
+  content: "Спасибо за развернутый ответ.\r\nВот сейчас пробую Super Cash, он конечно
+    попроще...))))\r\nбуду с gzip шаманить"
+- id: 171834
+  author: Урок 2 Ускорение блога в 100раз | GPXpro.ru
+  author_email: ''
+  author_url: http://gpxpro.ru/sozdanie_syaita/wordpress/urok-2-uskorenie-bloga-100raz.html
+  date: '2013-07-06 15:19:31 +0400'
+  date_gmt: '2013-07-06 11:19:31 +0400'
+  content: "[...] Вкладка General  [...]"
+- id: 179736
+  author: Роман
+  author_email: Bioscom@mail.ru
+  author_url: ''
+  date: '2013-08-13 06:47:24 +0400'
+  date_gmt: '2013-08-13 02:47:24 +0400'
+  content: "Cache Preload\r\n\r\nвы пишите страниц,так вопрос страниц или постов ?"
+- id: 179763
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-08-13 13:13:32 +0400'
+  date_gmt: '2013-08-13 09:13:32 +0400'
+  content: В данном случае я оперирую общим понятием Страницы. Имея в виду любую веб-страницу,
+    которая может быть как страницей wordpress, так и постом.
+- id: 180774
+  author: Оксана
+  author_email: oksana.kimusy@yandex.ru
+  author_url: http://goroskopyonlajn.ru/
+  date: '2013-08-20 21:21:00 +0400'
+  date_gmt: '2013-08-20 17:21:00 +0400'
+  content: "При активации плагина выдает такую ошибку: Fatal error: Call to undefined
+    function w3tc_button_link() in &#47;home&#47;mojuspeh&#47;domains&#47;goroskopyonlajn.ru&#47;public_html&#47;wp-content&#47;plugins&#47;w3-total-cache&#47;lib&#47;W3&#47;GenericAdminEnvironment.php
+    on line 99\r\nЧто это значит и как можно исправить?"
+- id: 181264
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-08-25 00:59:01 +0400'
+  date_gmt: '2013-08-24 20:59:01 +0400'
+  content: "Прежде всего нужно гуглить подобные вопросы. Всегда. Перед тем как задать
+    его где-либо. Довольно велик шанс, что проблема уже возникала у кого-либо до вас.
+    Вот например за 20 секунд гугления <a href=\"http:&#47;&#47;wordpress.org&#47;support&#47;topic&#47;fatal-error-call-to-undefined-function-w3tc_button_link?replies=5\"
+    rel=\"nofollow\">ТУТ<&#47;a> был найден следующий совет:\r\n\r\n<blockquote>This
+    worked for me: just remove the files&#47;folders:\r\n\r\n- File: &#47;wp-content&#47;advanced-cache.php\r\n-
+    Folder: &#47;wp-content&#47;cache&#47;\r\n\r\nAnd try again. It will skip the
+    missing function and install the correct files&#47;folder for you.<&#47;blockquote>\r\n\r\nНадеюсь
+    это вам поможет. Удачи =)\r\n\r\nPS: и извините за долгий ответ. Я немного занят
+    сейчас =("
+- id: 182972
+  author: Александр
+  author_email: alexander.ross2013@yandex.ru
+  author_url: http://fascinatingworld.ru/
+  date: '2013-09-05 17:53:02 +0400'
+  date_gmt: '2013-09-05 13:53:02 +0400'
+  content: Здравствуйте! столкнулся с проблемой, после установки этого плагина ( других
+    проблем вроде нет) небольшой трафик моего сайта вообще упал на 0! не пойму в чем
+    дело, если не сложно пожалуйста подскажите в чем может быть причина, буду благодарен
+    за любую помощь.
+- id: 182999
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-09-05 22:21:52 +0400'
+  date_gmt: '2013-09-05 18:21:52 +0400'
+  content: Может быть это только совпадение. посещаемость не могла упасть из-за этого
+    если страницы прогружаются нормально. может ваш счётчик не прогружается на странице
+    почему-то. Думаю такому молодому сайту (если речь идёт о том который вы указали)
+    рано ещё делать выводы, т.к. поисковики вас пока не оценили по достойнству.
+- id: 183009
+  author: Александр
+  author_email: alexander.ross2013@yandex.ru
+  author_url: ''
+  date: '2013-09-05 23:00:59 +0400'
+  date_gmt: '2013-09-05 19:00:59 +0400'
+  content: Спасибо! наверно действительно совпадение, ну ничего разберусь, да и почаще
+    буду заходить на ваш сайт, жаль раньше не знал о нем.
+- id: 184030
+  author: Плагин W3 Total Cache для резкого ускорения загрузки сайта | www.novichkoff.ru
+  author_email: ''
+  author_url: http://www.novichkoff.ru/plagin-w3-total-cache-dlya-rezkogo-uskoreniya-zagruzki-sajta.html
+  date: '2013-09-13 07:21:14 +0400'
+  date_gmt: '2013-09-13 03:21:14 +0400'
+  content: "[&#8230;] Блог SEOлётик [&#8230;]"
+- id: 218772
+  author: W3 Total Cache настройка | Blogger World
+  author_email: ''
+  author_url: http://blogger-world.tk/2014/01/w3-total-cache-nastrojka/
+  date: '2014-01-10 19:02:58 +0400'
+  date_gmt: '2014-01-10 15:02:58 +0400'
+  content: "[&#8230;] Пункт General Settings  [&#8230;]"
+- id: 229995
+  author: Александр
+  author_email: zaga89@bk.ru
+  author_url: ''
+  date: '2014-04-28 20:03:52 +0400'
+  date_gmt: '2014-04-28 16:03:52 +0400'
+  content: здравствуйте, установил плагин, настроил, но вот к картинкам и css и js
+    файлам присваиваются в конце ссылки такие вот данные "?d5401f"  оно меняется всё
+    что после знака вопроса, тоесть ссылка имеет вид - http:&#47;&#47;site.ru&#47;images&#47;kartinka.jpg?d5401f
+    это можно как то исправить, чтобы небыло приставок в конце урл ? или нет?
+- id: 229996
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2014-04-28 20:16:07 +0400'
+  date_gmt: '2014-04-28 16:16:07 +0400'
+  content: Исправить можно убрав Prevent caching of objects after settings change
+    в Browser Cache. Эта приставка меняется при каждой смене параметров. Нужна для
+    того чтобы сбросить предыдущий кеш. Допустим вы внесли изменения в картинку и
+    сохранили, но браузер, что уже просматривал первый вариант картинки и будет подгружать
+    только этот первый вариант из своего кеша и читатель так и не увидит изменения.
+    Так что я бы не рекомендовал убирать галочку. Если не секрет, то чем это вам мешает?
+- id: 229997
+  author: Александр
+  author_email: zaga89@bk.ru
+  author_url: ''
+  date: '2014-04-28 20:20:57 +0400'
+  date_gmt: '2014-04-28 16:20:57 +0400'
+  content: в гугл вебмастере в разделе параметры URL эти приставки повсплывали, не
+    знаю я это хорошо или плохо, вот и ищу информацию по этому поводу..))) может вы
+    что подскажите, влияет ли эта приставка как то на поисковики?
+- id: 229999
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2014-04-28 20:31:17 +0400'
+  date_gmt: '2014-04-28 16:31:17 +0400'
+  content: Не, это никак не влияет. По крайней мере, я не замечал и ничего такого
+    не слышал. И к тому же, это широко используемый приём для сброса кеша для картинок,
+    jss и css. Так что, думаю, можно не волноваться.
+- id: 230000
+  author: Александр
+  author_email: zaga89@bk.ru
+  author_url: ''
+  date: '2014-04-28 20:37:01 +0400'
+  date_gmt: '2014-04-28 16:37:01 +0400'
+  content: хотя согласен, приставка только на картинках и css, js поэтому на выдачу
+    самого сайта влиять не должна. Благодарю за подсказки)
+- id: 232773
+  author: oreceptah
+  author_email: rbt-1@tut.by
+  author_url: http://comixhere.ru/
+  date: '2014-06-04 18:02:02 +0400'
+  date_gmt: '2014-06-04 14:02:02 +0400'
+  content: Скажите из-за плагина w3 total cache - часто у пользователей возникает
+    белый экран при переходе не страницу сайта!! Помогите плиз решить проблему- готов
+    заплатить!!!
+- id: 232775
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2014-06-04 18:25:37 +0400'
+  date_gmt: '2014-06-04 14:25:37 +0400'
+  content: Могу посоветовать <a href="https:&#47;&#47;www.google.ru&#47;search?client=safari&rls=en&q=w3+total+cache+white+display"
+    target="_blank" rel="nofollow">погуглить<&#47;a> данную проблему. Там вроде много
+    про это написано.
+- id: 235213
+  author: Александр
+  author_email: rst-1@msn.com
+  author_url: ''
+  date: '2014-07-11 19:14:16 +0400'
+  date_gmt: '2014-07-11 15:14:16 +0400'
+  content: "У меня выдает вот такое, может кто встречал: \r\n\r\nNew Relic is not
+    running correctly. The plugin has detected the following issues:\r\n\r\n    PHP
+    module is not enabled.\r\n    PHP agent is not enabled.\r\n    API Key is invalid.\r\n
+    \   Account ID is not configured.\r\n    Application ID is not configured. Enter&#47;Select
+    application name.\r\n    License key could not be detected.\r\n\r\nA configuration
+    issue prevents CDN from working: The \"Authorization key\" and \"Replace default
+    hostname with\" field(s) cannot be empty.You need to select &#47; create a pull
+    zone."
+- id: 235717
+  author: Олег
+  author_email: contxt@mail.ru
+  author_url: ''
+  date: '2014-07-28 02:21:38 +0400'
+  date_gmt: '2014-07-27 22:21:38 +0400'
+  content: "Спасибо за статью!\r\n\r\n1) Уточните, пожалуйста: в статье Вы советуете
+    НЕ ставить галочки у \"Prevent caching of objects after settings change\", а в
+    комментариях советуете ставить - так как лучше всё-таки и почему? (VPS CentOS)\r\n\r\n2)
+    Функция минимизации портит оригиналы или лишь изменяет их копии? Боюсь, что активировав,
+    потом назад без бэкапа не вернуть..."
+- id: 235728
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2014-07-28 10:23:11 +0400'
+  date_gmt: '2014-07-28 06:23:11 +0400'
+  content: "Добрый.\n\n1) В комментариях я объяснил зачем нужна эта галка и там уже
+    вам решать. На производительность это не как не влияет. А нужно только чтобы сбрасывать
+    кеш браузера при смене параметров плагина. Нужно &ndash; ставим, не нужно &ndash;
+    не ставим. \n\n2) Оригиналы не трогаются. Плагин создаёт свои файлы куда всё компанует
+    и минимализирует. Взад всё просто возвращается =)"
+- id: 235738
+  author: Олег
+  author_email: contxt@mail.ru
+  author_url: ''
+  date: '2014-07-28 14:38:13 +0400'
+  date_gmt: '2014-07-28 10:38:13 +0400'
+  content: "Понятно, спасибо!\r\n\r\nВ нынешней версии - обновлённой - есть доп. функции,
+    которые у Вас не описаны в статье - было бы хорошо, если бы статья ими пополнилась..."
+- id: 235739
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2014-07-28 15:13:46 +0400'
+  date_gmt: '2014-07-28 11:13:46 +0400'
+  content: Оке. будет время &ndash; погляжу и дополню.
+- id: 236539
+  author: Тимур
+  author_email: timur-bv@energoworld.ru
+  author_url: http://energoworld.ru
+  date: '2014-08-07 08:47:59 +0400'
+  date_gmt: '2014-08-07 04:47:59 +0400'
+  content: Ну просто огромнейшее спасибо за подробную инструкцию. Хотя, некоторые
+    скриншоты уже устарели, но это не мешает.
+- id: 236720
+  author: Оптимизируем блог на Wordpress - необходимый минимум &#171; Блогистратура
+  author_email: ''
+  author_url: http://blogistratura.ru/%d0%be%d0%bf%d1%82%d0%b8%d0%bc%d0%b8%d0%b7%d0%b8%d1%80%d1%83%d0%b5%d0%bc-%d0%b1%d0%bb%d0%be%d0%b3-%d0%bd%d0%b0-wordpress-%d0%bd%d0%b5%d0%be%d0%b1%d1%85%d0%be%d0%b4%d0%b8%d0%bc%
+  date: '2014-08-12 00:31:21 +0400'
+  date_gmt: '2014-08-11 20:31:21 +0400'
+  content: "[&#8230;] А&nbsp;как его установить, настроить и&nbsp;использовать, почитайте
+    в&nbsp;специальной умной статье тут: W3&nbsp;Total Cache настройка [&#8230;]"
+- id: 236840
+  author: Саратов
+  author_email: 1@pug1.ru
+  author_url: http://mediasar.ru/
+  date: '2014-08-15 12:10:57 +0400'
+  date_gmt: '2014-08-15 08:10:57 +0400'
+  content: "Здравствуйте , всем!\r\nНесколько дней изучал и настраивал плагин!\r\nПочти
+    каждый этап тестировал на скорость, загрузку \"оперативки\" , посещаемость, глубину
+    просмотра посетителями и визуально.\r\nПлагин работает без ошибок, несмотря на
+    используемые многочисленные  добавочные  скрипты и десятки плагинов.\r\nВремя
+    загрузки страниц сайта заметно снизилось, НО...\r\n ОПЕРАТИВНАЯ ПАМЯТЬ \"ГРУЗАНУЛАСЬ\"
+    НА ГИГ !\r\nЭто нормальное явление ?"
+- id: 236851
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2014-08-15 15:23:50 +0400'
+  date_gmt: '2014-08-15 11:23:50 +0400'
+  content: Сложно сказать. Первый раз такое встречаю. В принципе такое возможно если
+    сайт очень большой с большой нагрузкой. Но если раньше было гораздо меньше загруженность
+    оперативки, например в разы, то скорее всего что-то тут не чисто. Надо анализировать
+    ситуацию на месте, так сложно сказать.
+- id: 236855
+  author: Саратов
+  author_email: 1@pug1.ru
+  author_url: http://mediasar.ru/
+  date: '2014-08-15 17:50:23 +0400'
+  date_gmt: '2014-08-15 13:50:23 +0400'
+  content: Как и что анализировать? Настройки все по вашей инструкции
+- id: 236856
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2014-08-15 18:19:10 +0400'
+  date_gmt: '2014-08-15 14:19:10 +0400'
+  content: На счёт WordPress то может быть есть какие-то плагины или скрипты. Я даже
+    не знаю. А так обычно это на уровне сервера проверяют. Может это база данных жрёт,
+    может php может что ещё. Если у вас VPS, то вы можете это сделать. Если нет, то
+    обратитесь к своему хостеру за разъяснениями, мол почему такое потребления памяти
+    и могут ли они чего посоветовать.
+- id: 236858
+  author: Саратов
+  author_email: 1@pug1.ru
+  author_url: http://mediasar.ru/
+  date: '2014-08-15 18:59:32 +0400'
+  date_gmt: '2014-08-15 14:59:32 +0400'
+  content: VPS. Перезапустил его, Оператиква разгрузилась на этот же Гиг и потихоньку
+    опять забивается (график ползёт вверх)
+- id: 236860
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2014-08-15 19:12:46 +0400'
+  date_gmt: '2014-08-15 15:12:46 +0400'
+  content: Мне отсюда не определить, что имеено оперативку забивает. Если это правда
+    связанно с W3TC, то наверно стоит его не использовать, а попробовать что-то другое.
+    При отключении плагина опертивка сильно освобождается? Если да, то может быть
+    попробуйте поставить wp super cache. Если картина будет наблюдаться похожая, то
+    за комментариями стоит обратиться в поддержку. Это могут влиять настройки сервера.
+    Но вряд ли, скорее всего где-то течёт память, может быть у последнего релиза W3TC
+    баг. Такое бывает.
+- id: 237778
+  author: valeriy
+  author_email: osharin-nik@mail.ru
+  author_url: ''
+  date: '2014-09-06 09:52:04 +0400'
+  date_gmt: '2014-09-06 05:52:04 +0400'
+  content: И как быть в том случае, если сервер nginx? Можно обойтись и hyper cahce?
+    Вообще было бы не плохо узнать как максимально прокачать этот сервер на скорость,
+    какие плагины нужны, и проч. хаки.
+- id: 237783
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2014-09-06 11:50:45 +0400'
+  date_gmt: '2014-09-06 07:50:45 +0400'
+  content: Это конечно отдельная статья про nginx нужна. И вообще, максимум можно
+    выжать только если есть свой выделенный сервер или хотя бы VPS, чтобы можно было
+    конфиги индивидуально настроить. А так если доступа к конфигам nginx нету, то
+    можно поставить и hyper cache, максимум не будет, но хоть что-то.
+- id: 239416
+  author: Geleosan
+  author_email: info@life-trip.ru
+  author_url: http://life-trip.ru
+  date: '2014-10-07 04:10:56 +0400'
+  date_gmt: '2014-10-07 00:10:56 +0400'
+  content: "А все-таки не подскажите, что для nginx писать, если есть доступ к его
+    конфигам? Смотрю конфиг по умолчанию, там кеш статических элементов указан, а
+    вот заголовки со сроком хранения нет.\r\n\r\nИ вообще получается, что если nginx,
+    то в w3 total половина настроек работать не будет, так как они в htaccess указаны?"
+- id: 239417
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2014-10-07 04:27:43 +0400'
+  date_gmt: '2014-10-07 00:27:43 +0400'
+  content: |-
+    Вместо того чтобы копировать я лучше вас направлю по <a href="https:&#47;&#47;rtcamp.com&#47;wordpress-nginx&#47;tutorials&#47;single-site&#47;w3-total-cache&#47;" rel="nofollow">нужной ссылке<&#47;a>. Там пример конфига для установки опций <strong>Page Cache<&#47;strong> и <strong>Browser Cache<&#47;strong> с помощью nginx. Всё остальное типа минификации, кеширования запросов и др. nginx уже не касается.
+
+    ps: хороший у вас блог =)
+- id: 239418
+  author: Geleosan
+  author_email: info@life-trip.ru
+  author_url: http://life-trip.ru
+  date: '2014-10-07 04:34:06 +0400'
+  date_gmt: '2014-10-07 00:34:06 +0400'
+  content: Что-то не вижу, ни своего коммента, ни вашего ответа :) Но да ладно. Спасибо,
+    пойду по ссылке изучать.
+- id: 239419
+  author: Geleosan
+  author_email: info@life-trip.ru
+  author_url: http://life-trip.ru
+  date: '2014-10-07 04:35:08 +0400'
+  date_gmt: '2014-10-07 00:35:08 +0400'
+  content: Хм, теперь вижу, после обновления страницы. Мистика :)
+- id: 239991
+  author: simpleNewz - Комментарии на сайте СЕОлетик RSS Feed for 2014-10-16
+  author_email: ''
+  author_url: http://simplenewz.com/2014-10-16/Mainstream/feed/34246
+  date: '2014-10-17 00:39:32 +0400'
+  date_gmt: '2014-10-16 20:39:32 +0400'
+  content: "[&#8230;] Комментарий к записи W3 Total Cache настройка (SlowProg) [&#8230;]"
+- id: 240276
+  author: simpleNewz - Комментарии на сайте СЕОлетик RSS Feed for 2014-10-21
+  author_email: ''
+  author_url: http://simplenewz.com/2014-10-21/Mainstream/feed/34246
+  date: '2014-10-21 20:48:31 +0400'
+  date_gmt: '2014-10-21 16:48:31 +0400'
+  content: "[&#8230;]  [&#8230;]"
+- id: 241359
+  author: Дмитрий
+  author_email: rdv777@inbox.ru
+  author_url: http://bokovina.ru/
+  date: '2014-11-09 11:12:45 +0300'
+  date_gmt: '2014-11-09 07:12:45 +0300'
+  content: "Здравствуйте!\r\nВижу по комментариям, что плагин кайфовый. Но была у
+    меня раз проблема с несовместимостью двух плагинов по кешу, чуть не потерял всю
+    инфу. Голова болела неделю. \r\n\r\nПонимая, что знаний пока недостаточно, боюсь
+    снова наколоть дров. Оказываете ли Вы услуги по установке и настройке плагина,
+    с гарантией результата?\r\n\r\nP.S. Существует платный плагин MaxCache, что-нибудь
+    известно Вам о нём?"
+- id: 243139
+  author: артем
+  author_email: admin@infoalps.ru
+  author_url: ''
+  date: '2014-11-26 21:51:23 +0300'
+  date_gmt: '2014-11-26 17:51:23 +0300'
+  content: "добрый вечер. плагин, действительно, великолепный. до него стоял hypercahe,
+    в принципе неплохо справлялся. после же установки W3 Total Cache сайт стал просто
+    летать...но есть одно \"НО\" - W3 Total Cache лишил мой сайт мобильной версии.
+    использую шаблон изначально адаптивный, то есть он подстраивается под любое разрешение
+    монитора мобильных устройств в том числе, но теперь при просмотре сайта с пом
+    смартфона, страницы отображаются криво, пользователи быстро уходят... вычислил
+    этот \"косяк\" W3 Total Cache деактивацией всех плагинов и поочередным их включением.
+    установка плагинов, генерирующих мобильную версию сайта, ни к чему не привела.\r\nможет
+    быть я не выполнил какие-либо настройки плагина W3 Total Cache, влияющие на моб
+    версию? например, про настройки \"User Agents Groups\" нигде прочитать на русскоязычных
+    блогах не удалось. нагуглил что-то похожее на англоязычном сайте про эту настройку
+    - http:&#47;&#47;shibashake.com&#47;wordpress-theme&#47;how-to-create-dynamic-user-agent-groups-in-w3tc,
+    но переводчик коряво переводит, мало что понял. не могли бы вы популярно объяснить
+    что тут к чему? спасибо!"
+- id: 243739
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2014-12-05 01:31:09 +0300'
+  date_gmt: '2014-12-04 21:31:09 +0300'
+  content: |-
+    Извините за долгий ответ. Времена нынче тёмные.
+
+    Сложно сказать, надо смотреть просто из-за чего шаболон ломает и от этого идти уже. Возможно из-за минификации js и css ломаются (поскольку изначально они были не валидные). Можете попробовать отключать по очереди различные виды кеширования в самом плагине, сбрасывать кеш и проверять не наладилась ли мобильная версия.
+- id: 244257
+  author: Ольга
+  author_email: oljasolo@mail.ru
+  author_url: http://takioki.ru
+  date: '2014-12-15 10:45:27 +0300'
+  date_gmt: '2014-12-15 06:45:27 +0300'
+  content: Можете подсказать почему у меня на сайте после активации W3 Total Cache
+    все изображения стали иметь странные ссылки типа http:&#47;&#47;takioki.ru&#47;wp-content&#47;uploads&#47;2014&#47;12&#47;tilapia_7.jpg?b68907
+- id: 244353
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2014-12-16 22:30:30 +0300'
+  date_gmt: '2014-12-16 18:30:30 +0300'
+  content: Всё нормально. Это нужно для сброса браузерного кеша статики. Изменяется
+    всё что после ? и кеш сбрасывается, в противном случае браузер закеширует и ни
+    за что не сбросит пока время кеша не истечёт, даже если вам это очень надо.
+- id: 244469
+  author: Ольга
+  author_email: oljasolo@mail.ru
+  author_url: http://takioki.ru
+  date: '2014-12-18 19:19:06 +0300'
+  date_gmt: '2014-12-18 15:19:06 +0300'
+  content: "А это может как-то повлиять на индексирование Яндексом картинок?\r\nЯ
+    просто в ЯндексКартинках не вижу почти никаких картинок со своего сайта (только
+    от очень старых статей есть). \r\nW3 Total Cache я ставила еще полгода назад и
+    похоже после этого ни одной картинки с сайта больше не было проиндексировано ...
+    может я и ошибаюсь, но тогда уже не знаю почему еще Яндекс может не индексировать
+    картинки."
+- id: 244471
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2014-12-18 19:50:01 +0300'
+  date_gmt: '2014-12-18 15:50:01 +0300'
+  content: |-
+    У Яндекса вообще с картинками сложные отношение, судя по моему опыту. Думаю ряд ли это тут замешано. Как предположение можно убрать приставку у адресов картинок, которая нужна для сброса кеша у браузераз. На странице <em>Browser Cache<&#47;em> убрать первую галку <em>Prevent caching of objects after settings change<&#47;em>. Но сомневаюсь что это играет роль, просто предположил.
+
+    Может помочь ещё составление sitemap для картинок. А может и не поможет. Яндекс он такой.
+- id: 245636
+  author: Константин
+  author_email: adm_konst@mail.ru
+  author_url: http://историиземли.рф
+  date: '2015-01-13 18:19:11 +0300'
+  date_gmt: '2015-01-13 14:19:11 +0300'
+  content: "А у меня не запускается, переходит в режим The plugin is currently enabled
+    in community edge mode.\r\nА еще админка выдается сообщение типа Fatal error:
+    Allowed memory size of 104857600 bytes exhausted (tried to allocate 1966080 bytes)
+    in &#47;home&#47;wm23853&#47;domains&#47;xn--e1adcaacuhnujm.xn--p1ai&#47;public_html&#47;wp-includes&#47;.....\r\n\r\nи
+    что с этим делать? сайт <a href=\"http:&#47;&#47;историиземли.рф\" rel=\"nofollow\">историиземли.рф<&#47;a>"
+- id: 245640
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2015-01-13 19:21:41 +0300'
+  date_gmt: '2015-01-13 15:21:41 +0300'
+  content: Судя по ошибке <em>Allowed memory size<&#47;em> это проблемы вашего хостера,
+    а точнее настройки php, где не выделяется достаточно памяти на работу php-скрипта.
+    Собственно он за недостатком памяти и не может совершить свою работу. Если вы
+    находитесь на шаред хостинге, то вам не пойдут на встречу и не увеличат памяти,а
+    скажут переходить на тариф выше. Так что в вашем случае плагин, похоже, не подходит.
+- id: 245646
+  author: Константин
+  author_email: adm_konst@mail.ru
+  author_url: http://историиземли.рф
+  date: '2015-01-13 21:35:24 +0300'
+  date_gmt: '2015-01-13 17:35:24 +0300'
+  content: Пишут что увеличили до 256, не знаю как проверить. А сколько надо, искал
+    в Интернете  - не нашел. Какой хостинг нужен, я полагаю, что всё равно плагин
+    под вордпресс не должен требовать серьезных параметров
+- id: 245647
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2015-01-13 22:12:24 +0300'
+  date_gmt: '2015-01-13 18:12:24 +0300'
+  content: Ну в общем и целом если код не оптимизирован, то он может памяти кушать
+    бесконечно много. Если после увеличения до 256 у вас продолжает появляться ошибка,
+    то от пагина стоит отказаться. Память может жраться не напрямую этим плагином,
+    а вашим кодом, например, из темы, но плагин просто его провоцирует. А может и
+    нет. Предполагать сложно, надо на месте смотреть.
+- id: 246002
+  author: mp3
+  author_email: 5mp3.org@gmail.com
+  author_url: http://5mp3.org
+  date: '2015-01-21 21:54:14 +0300'
+  date_gmt: '2015-01-21 17:54:14 +0300'
+  content: скажите можно ли поставить данный скрипт на сайт написанном чисто на php
+    ?
+- id: 246020
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2015-01-22 06:15:22 +0300'
+  date_gmt: '2015-01-22 02:15:22 +0300'
+  content: Ну в общем, можно выдрать рабочие части из плагина и прикрутить к самописному
+    движку. Поддержать все возможности что есть в плагине наверно будет очень сложно,
+    правда всё зависит от движка. Но основные омменты точно можно передать, правда
+    работать напильником придётся много. Легче наверно поискать отдельные библиотеки
+    реализующие кеширование.
+- id: 248576
+  author: Алексей
+  author_email: mrit@yandex.ru
+  author_url: http://www.evaveda.com
+  date: '2015-03-30 10:20:53 +0300'
+  date_gmt: '2015-03-30 06:20:53 +0300'
+  content: "Здравствуйте. Была обычная проблема - сайт создавал большую нагрузку,
+    порядка 105 СР при разрешенных 65. Поставил hyper cache + db cache reloaded fix,
+    нагрузка снизилась до 70 -80 СР.\r\nПользовался ими какое-то время. Отключил.
+    Поставил W3 Total Cache. Результат ошеломляющий - порядка 45 СР. \r\nПроблема
+    обнаружилась неожиданно.... Браузер гугл хром (причем только гугл хром, все остальные
+    изввестные мне, в том числе и портативный гугл хром отображают нормально) на некоторых
+    страницах - ПРИЧЕМ ИМЕННО НА НЕКОТОРЫХ, ВКЛЮЧАЯ ГЛАВНУЮ! выдает крякозябры. С
+    записями тоже самое. \r\nhttp:&#47;&#47;www.evaveda.com&#47; - крякозябры\r\nhttp:&#47;&#47;www.evaveda.com&#47;partnyoram&#47;
+    - крякозябры\r\nhttp:&#47;&#47;www.evaveda.com&#47;gimalajskaya-joga&#47; - нормально\r\nЕсть
+    и другой сайт, на котором я тоже установил W3 Total Cache и абсолютно та же проблема.
+    Вероятно проблема в том, что гугл хром некорректно отображает кэшированные js
+    или css, но почему тогда только этот браузер и только некоторые страницы? Что
+    можно сделать?"
+- id: 248584
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2015-03-30 12:54:02 +0300'
+  date_gmt: '2015-03-30 08:54:02 +0300'
+  content: |-
+    Само собой css и js тут не причём. Проблема в том что сервер уже возвращает кракозябры. И Лично у меня ни одна страница не отображается нормально. Скорее всего и не плагин вовсе виноват, а просто он натыкает на проблему, которая раньше худо-бедно как-то обрабатывалась, а плагин не понимая как себя вести всё ломает.
+
+    В чём дело по кофейной гуще сказать не могу, но могу предположить, что кодировка файлов темы (а может быть и других) отличается от utf8 без bom. А может быть сервер настроен так что возвращает не ту кодировку. В последнем случае надо идти и спрашивать в техподдержку хостера.
+- id: 249073
+  author: Сергей
+  author_email: sorexxx@list.ru
+  author_url: http://shopmoviemix.com
+  date: '2015-04-11 13:27:30 +0300'
+  date_gmt: '2015-04-11 09:27:30 +0300'
+  content: "Привет!\r\n\r\nПодскажи, как вообще удалить этот плагин и все, что он
+    на закешировал. А то разросся сайт до космических размеров, сама база весит 25
+    метров, а сайт занимает почти 2.5 гига. Отключил плагин, но все равно папки существуют..."
+- id: 249748
+  author: Sergey
+  author_email: okknopka@gmail.com
+  author_url: http://www.audioknigi-online.com
+  date: '2015-05-04 02:43:52 +0300'
+  date_gmt: '2015-05-03 22:43:52 +0300'
+  content: Привет. Может ты знаешь. Вот я собрал все js файлы в один и минифицировал.
+    Вроде все корректно. Но вот только плагин подключает это все в хеадер. А это совсем
+    не хорошо. Как бы сделать так чтобы он js ски подключил все таки как положено,
+    перед закрывающим тегом body.
+- id: 249759
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2015-05-04 13:19:34 +0300'
+  date_gmt: '2015-05-04 09:19:34 +0300'
+  content: Если в general settings в minify включить ручную минификацию (manual),
+    то на вкладке minify появятся возможности вставить перед body. но я не проверял.
+    копайте примерно в эту сторону, плюс не забывайте гуглить =)
+- id: 250277
+  author: heremp3
+  author_email: heremp3.net@yandex.ru
+  author_url: http://heremp3.net/
+  date: '2015-05-16 12:42:24 +0300'
+  date_gmt: '2015-05-16 08:42:24 +0300'
+  content: Скажите можно ли данный плагин использовать на сайте на писанном на php
+    ?
+- id: 250281
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2015-05-16 13:57:40 +0300'
+  date_gmt: '2015-05-16 09:57:40 +0300'
+  content: Этот плагин для WordPress, но в общем и целом из него можно выпилить кеширующую
+    часть и встроить в любой самописный движок, но для этого конечно нужны знания
+    php
+---
+<p><a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;w3-total-cache.png"><img class="alignleft size-medium wp-image-2504" title="W3 Total Cache настройка " src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;w3-total-cache-300x300.png" alt="W3 Total Cache настройка " width="300" height="300" &#47;><&#47;a> Добрый день, сегодня я хочу рассказать о том как <strong>настроить W3 Total Cache<&#47;strong>, но для начала немного о нем. Это плагин WordPress предназначенный для кэширования всего и вся на вашем ресурсе. Фактически нет ни одного аспекта, который бы он не задевал. Он охватывает совершенно все от кэширования на сервере, до кэширования на клиенте. Использование W3 Total Cache позволяет улучшить производительность сайта по крайней мере в 10 раз, как пишут сами создатели. С ним поднимается коэффициент конверсии, т.к. увеличивается время пребывания посетителя на сайте и количество посещенных страниц. А при вторичных посещениях загрузка страницы будет происходить мгновенно, за счет кэширования браузером. У меня вот например до 40% посетителей это вернувшиеся, т.е. 40% посетителей страница загружается мгновенно. Также W3 Total Cache снижается нагрузку на сервер и экономит количество потраченного трафика до 80% за счет сжатия HTML, CSS, JavaScript и RSS. В общем плагин отличный и думаю больше лирических отступлений не нужно. И хоть статья о том, как W3 Total Cache настроить, я начну с того, как его установить.</p>
+<h2>Установка W3 Total Cache<&#47;h2><br />
+Установка этого пагина не совсем обычная и есть пару действий которые обязательно нужно совершить для корректной установки плагина:</p>
+<ul>
+<li><a title="Плагин W3 Total Cache" href="http:&#47;&#47;wordpress.org&#47;extend&#47;plugins&#47;w3-total-cache&#47;" rel="nofollow" target="_blank">Скачиваем<&#47;a> сам плагин.<&#47;li>
+<li>Первым делом, необходимо отключить и удалить любой другой плагин кэширования, чтобы не вызвать конфликтов.<&#47;li>
+<li>Временно установить права доступа 777 для <em>wp-content&#47;<&#47;em> и <em>wp-content&#47;uploads&#47;<&#47;em> с помощью панели управления хостингом или FTP-клиента.<&#47;li>
+<li>Далее все по старинке. Входите в админку как администратор WordPress. Добавляете плагин W3 Total Cache. Активируете и он сразу начнет работать в автоматическом режиме.<&#47;li>
+<li>После активации необходимо вернуть права доступа <em>wp-content&#47;<&#47;em> и <em>wp-content&#47;uploads&#47;<&#47;em> обратно к 755.<&#47;li><br />
+<&#47;ul><br />
+Теперь необходимо произвести настройку плагина, без которой пока он работает не в полную силу. Для этого пройдите на страницу настройки плагина, которая находится в панели управления под пунктом <em>Performance<&#47;em>. Теперь можно приступить к настройке.</p>
+<h2>Вкладка General<&#47;h2><br />
+Первое, что вы увидите это вкладка General. Рекомендую сразу же очистить кеш (<em>empty all cashes<&#47;em>) и отключить режим просмотра (disable). Теперь плагин работает в режиме реального времени. Во вкладке General можно включить или выключить любые кэширования по отдельности, либо все сразу. Лучше сразу решить какое кэширование вам понадобится, чтобы потом только оставалось более тонко настроить их. Включение сразу всего особой пользы не принесет. В общем, вот список доступных вариантов кэширования:</p>
+<p><strong>Page Cache<&#47;strong> &mdash; опция создает кэш для статических страниц. Включив ее можно значительно уменьшите время загрузки всех страниц. В выпадающем списке можно выбрать место хранения кэша. Для шаред хостингов рекомендуется использовать <em>Disk: Enhanced<&#47;em>.&nbsp; И обычно он сразу автоматически выбирается. Дальше тоже будут такие моменты, когда можно выбрать место хранения кэша и рекомендую везде этот выбирать. Точнее, если вы на шаред хостинге плагин за вас уже выберет этот вариант, вы просто проконтролируйте.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-page-cache.jpg"><img class="aligncenter size-large wp-image-2478" title="Основные настройки - Page Cache" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-page-cache-640x198.jpg" alt="Основные настройки - Page Cache" width="640" height="198" &#47;><&#47;a><br />
+<strong>Minify<&#47;strong> &mdash; опция для &nbsp;уменьшения файлов <em>.css<&#47;em>, <em>.js<&#47;em>, <em>.html<&#47;em>&nbsp;и <em>RSS<&#47;em>. Очень рекомендую ее включить, особенно когда у вас используется много файлов стилей и скриптов. Эта опция убирает лишние пробелы, переносы строк и другое, тем самым уменьшая размер файлов и скорость их загрузки. Но тут стоит быть аккуратными, если ваш JS не достаточно валиден, то это может привести к ошибки в его работе. Сейчас объясню. Обычно если не ставить некоторые "точку с запятой" (;) в конце строк, то браузер в принципе вас поймет (например при присваивание значения переменной), но если убрать переносы строк, то без "точки с запятой" текст сольется и тогда браузер ничего не разберет. Так что после включения этой опции проверьте работоспособность всех скриптов, и если чего не фурычит, то капайте скрипты в поисках ошибок-слияния строк.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-minify.jpg"><img class="aligncenter size-large wp-image-2474" title="Основные настройки - Minify" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-minify-640x245.jpg" alt="Основные настройки - Minify" width="640" height="245" &#47;><&#47;a><br />
+<strong>Database Cache<&#47;strong> &mdash; опция для кэширования запросов к базе данных. Настоятельно рекомендую включить эту опцию, поскольку WordPress полностью стоит на базе данных и без нее ни одно действие не произведет, а потому очень часто туда обращается, особенно если плагинов разных куча. А если у ресурса еще и огромная посещаемость, то опция просто обязательна!<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-database-cache.jpg"><img class="aligncenter size-large wp-image-2471" title="Основные настройки - Ddatabase Cache" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-database-cache-640x187.jpg" alt="Основные настройки - Ddatabase Cache" width="640" height="187" &#47;><&#47;a><br />
+<strong>Object Cache<&#47;strong> &mdash; опция включения объекта кэширования. Объект кэширования содержит в себе различные объекты из базы данных. Эта опция может ускорить ваш сайт или нет. Все зависит от скорости работы вашего диска (скорости операций считывания и записи). Вы можете очень легко проверить принесет ли вам пользу эта опция или нет: просто сравните время загрузки сайта до и после включения этой опции. Если разницы не будет, то и трогать не имеет смысла ее. Но если вы захотите ее включить, то&nbsp;в <em>Object Cache Method<&#47;em> рекомендую выбрать <em>Disk<&#47;em>.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-object-cache.jpg"><img class="aligncenter size-large wp-image-2477" title="Основные настройки - Object Cache" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-object-cache-640x199.jpg" alt="Основные настройки - Object Cache" width="640" height="199" &#47;><&#47;a><br />
+<strong>Browser Cache<&#47;strong> &mdash; опция включения кэша браузера клиента. Эта опция позволяет производить HTTP-сжатие. При каждом посещении сайта браузер пользователя будет сохранять копию сайта у себя на жестком, что при следующей загрузку значительно сократит время открытия сайта, особенно если в дизайне куча изображений, которые долго грузятся с сервера. Но тут нужно быть осторожным, в зависимости от хостинга эта опция может и навредить немного вашему сайту. Если у будет возникать какие-то проблемы с загрузкой страницы (типа ресурс не найден и подобное), то можно &nbsp;поиграться настройками на странице этой опции, о которой я расскажу позже. А если ничего не помогает, то лучше отключить.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-browser-cache.jpg"><img class="aligncenter size-large wp-image-2469" title="Основные настройки - Browser Cache" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-browser-cache-640x173.jpg" alt="Основные настройки - Browser Cache" width="640" height="173" &#47;><&#47;a><br />
+<strong>CDN (Content Delivery Network)<&#47;strong> &mdash; опция включения распределенной инфраструктуры доставки контента. Эта возможность означает, что некоторый тяжелый контент (фото, видео, аудио и другое) можно хранить в другом месте (не на своем сервере), а при надобности подгружать сразу конечному пользователю из наиболее близко расположенного (географически) хранилища. Вот в Вике про <a title="CDN" href="http:&#47;&#47;ru.wikipedia.org&#47;wiki&#47;Content_Delivery_Network" rel="nofollow" target="_blank">CDN<&#47;a> поподробнее можете почитать. В общем, если у вас на сайте много различной мультимедии, то наверно стоит воспользоваться этой опцией, она поможет сильно сократить время загрузи этого контента.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-cdn.jpg"><img class="aligncenter size-large wp-image-2470" title="Основные настройки - CDN" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-cdn-640x210.jpg" alt="Основные настройки - CDN" width="640" height="210" &#47;><&#47;a><br />
+<strong>Varnish<&#47;strong> &mdash; опция включения специального HTTP-акселератора. Этот акселератор специально предназначен для больших и динамических сайтов, у которых проблема с времен загрузки контента. Более подробно вы можете почитать о <a title="Varnish" href="http:&#47;&#47;en.wikipedia.org&#47;wiki&#47;Varnish_(software)" rel="nofollow" target="_blank">Varnish<&#47;a> в Вики. Эта опция рекомендуется, только для очень больших проектов, и думаю заморачиваться с блогом не стоит.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-varnish.jpg"><img class="aligncenter size-large wp-image-2480" title="Основные настройки - Varnish" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-varnish-640x240.jpg" alt="Основные настройки - Varnish" width="640" height="240" &#47;><&#47;a><br />
+<strong>Network Performance &amp; Security powered by CloudFlare<&#47;strong> &mdash; &nbsp;опция включения еще одной распределенной сети доставки контент.&nbsp; <span><span>Как и обе опции выше эта так же подключает сторонний ресурс, который является <&#47;span><&#47;span><span><span>сетью доставки контента<&#47;span><&#47;span><span><span>, которая направленна на повышение производительности сайта, его скорости и обеспечения безопасности. Но как обычно, если ваш сайт не является огромным и посещаемым проектом, то использовать эту опцию не надо.<&#47;span><&#47;span><br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-network-performance-security.jpg"><img class="aligncenter size-large wp-image-2476" title="Основные настройки - Network Performance Security" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-network-performance-security-640x249.jpg" alt="Основные настройки - Network Performance Security" width="640" height="249" &#47;><&#47;a><br />
+<strong>Support Us<&#47;strong> &mdash; блок для установки обратной ссылки на разработчиков для того чтобы поддержать их проект. Каждый сам конечно решает ставить ее или нет, но если не хотите, то там еще можно и твитнуть их. Думаю последнее под силу сделать каждому. Все таки такой неплохой плагин намутили - можно и твитнуть.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-support-us.jpg"><img class="aligncenter size-large wp-image-2479" title="Основные настройки - Support Us" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-support-us-640x288.jpg" alt="Основные настройки - Support Us" width="640" height="288" &#47;><&#47;a><br />
+<strong>Miscellaneous<&#47;strong> &mdash; блок дополнительных настроек. Я рекомендую поставить первую галку&nbsp;<em>Verify rewrite rules,<&#47;em> которая будет проверять правила перезаписи на сервере, а то бывает некоторые плагины имеющие дело с файлом <em>.htaccess<&#47;em>&nbsp;могут сбить настройки W3 Total Cache. А с этой галочкой вам будет доложено, когда случится какая-нибудь проблема. Также рекомендую поставить, если есть, <em>Page Speed API Key<&#47;em>&nbsp;и отметить галочкой <em>Enable Google Page Speed dashboard widget<&#47;em>. Тогда у вас будет полный отчет о скорости работы вашего сайта и рекомендации по улучшению от Google Page Speed.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-miscellaneous.jpg"><img class="aligncenter size-large wp-image-2475" title="Основные настройки - Miscellaneous" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-miscellaneous-640x274.jpg" alt="Основные настройки - Miscellaneous" width="640" height="274" &#47;><&#47;a><br />
+<strong>Debug Mode<&#47;strong> &mdash; блок для установки HTML-комментариев в исходном коде страницы для пояснения действий плагина. Не советую тут что-либо вообще отмечать, а то это существенно скажется на скорости загрузки страницы. Только в том случаи если вам нужно знать на что влияет и что меняет плагин, то можете включить и поглядеть, но потом не забудьте выключить.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-debug.jpg"><img class="aligncenter size-large wp-image-2472" title="Основные настройки - Debug" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-debug-640x185.jpg" alt="Основные настройки - Debug" width="640" height="185" &#47;><&#47;a><br />
+<strong>Import &#47; Export Settings<&#47;strong> &mdash; блок для импорта и экспорта сделанных настроек. Сделанные настройки можно сохранить на компьютере при нажатии <em>Download<&#47;em>, или импортировать ранее сохраненные с помощью <em>Upload<&#47;em>. Последняя кнопка <em>Restore Default Settings<&#47;em> восстанавливает настройки плагина по умолчанию. Рекомендую после проведения всех настроек плагина экспортировать настройки на компьютер на всякий случай.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-import-export-settings.jpg"><img class="aligncenter size-large wp-image-2473" title="Основные настройки - Import Export Settings" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;general-import-export-settings-640x210.jpg" alt="Основные настройки - Import Export Settings" width="640" height="210" &#47;><&#47;a></p>
+<h2>Вкладка Page Cache<&#47;h2><br />
+Идем дальше по вкладкам. Следующая после <em>General<&#47;em> это&nbsp;<em>Page Cache<&#47;em>.&nbsp;На этой вкладке можно настроить более детально параметры кэша страниц. Тут так же все делиться на отдельные блоки и каждый мы разберем.</p>
+<p><strong>General<&#47;strong> &mdash;&nbsp;блок для указания чего надо, а чего не надо кэшировать. Включение кэширования на главной странице, SSL запросов и запросы только для вашего домена. Также установите флажок, чтобы отключить кэширование страниц для зарегистрированных пользователей, чтобы у них отображалась всегда актуальная версия сайта.&nbsp;Я не рекомендую кэширования фиды, потому что изменения не зразу будут отражаться в них, что не есть хорошо. Ведь фиды на то и нужны, чтобы сообщать о новой актуальной информации, как можно быстрее. Я также не рекомендую кэшировать страницу ошибок 404, потому что она не используется часто, да и код будет возвращаться не 404, а 200, что нежелательно.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;page-cache-general.jpg"><img class="aligncenter size-large wp-image-2488" title="Кэширование страниц - General" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;page-cache-general-640x290.jpg" alt="Кэширование страниц - General" width="640" height="290" &#47;><&#47;a><br />
+<strong>Advanced<&#47;strong> &mdash;&nbsp;блок дополнительных настроек кэша страницы. В большинстве случаев, вам можно не трогать эти настройки оставить все как есть, если только у вас не возникнут особые требования к кэшу. Так или иначе в этом блоке вы можете уменьшить или увеличить время жизни страниц в кэше. По истечению этого времени страницы будет пересобраны заново (по умолчанию 3600 секунд - 1 час - должно быть достаточно). Далее вы можете установить конкретные <a title="User Agent" href="http:&#47;&#47;ru.wikipedia.org&#47;wiki&#47;User_Agent" rel="nofollow" target="_blank">User-Agent'ы<&#47;a> (например, ботов поисковых систем), которым не будут отдаваться страницы из кэша. Это очень важно, чтобы в индексе поисковых систем всегда находились свежие версии ваших страниц. И остальные окна ниже отвечают за то какие страницы&#47;директории добавлять или не добавлять в кэш.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;page-cache-advanced.jpg"><img class="aligncenter size-large wp-image-2486" title="Кэширование страниц - Advanced" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;page-cache-advanced-550x640.jpg" alt="Кэширование страниц - Advanced" width="550" height="640" &#47;><&#47;a><br />
+<strong>Cache Preload<&#47;strong> &mdash;&nbsp;блок для включения предзагрузки кэша. Этот блок позволит быть кэшу всегда готовым, т.е. он будет строится в фоновом режиме, а не выжидать пока кто-нибудь посетит страницу, чтобы на лету ее поместить в кэш. Это способствует равномерному распределению нагрузки на сервер во времени и уменьшению времени загрузки для посетителя всех страниц, не зависимо от того прогружал ли ее кто-нибудь до этого или нет. Я использую интервал 100 секунд на постройку 10 страниц за один раз, а всего мой кэш существует 8000 секунд, что было настроено в предыдущем блоке. Т.е. за 8000 секунд успевает построится 800 страниц кэша, что примерно равно количествам страниц моего блога. И это очень важно, ведь если у вас 1000 страниц, и вы строите по 10 страниц каждые 10 минут, а кэш истекает через каждый час, то вы только сможете построить 60 из 1000 страниц до обнуления и начала новой сборки кэша. Негоже так! Сверяйте ваши реальные цифры для бльшей результативности. Также не забудьте в последнее поле вставить реально существующую карту сайта по которой собственно и собирается кэш.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;page-cache-cache-preload.jpg"><img class="aligncenter size-large wp-image-2487" title="Кэширование страниц - Cache Preload" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;page-cache-cache-preload-640x206.jpg" alt="Кэширование страниц - Cache Preload" width="640" height="206" &#47;><&#47;a><br />
+<strong>Purge Policy<&#47;strong> &mdash;&nbsp;блок для установки страниц, которые должны быть заменены в кэше на обновленные сразу после публикации нового поста. Эта настройка позволит вам всегда держать актуальными ваши основные страницы. Например, главная страница обычно содержит список последних постов, и если ее кэш не будет заменен после публикации новой статьи, то некоторое время она будет неактуальной (пока не истечет срок жизни кэша). На своем блоге я буду перегружать кэш главной страницы, опубликованного поста и фидов (всех видов). Все остальные страницы столь редко используется, что не имеет смысла менять их кэш, и он может повисеть чуток и устаревшим.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;page-cache-purge-policy.jpg"><img class="aligncenter size-large wp-image-2489" title="Кэширование страниц - Purge Policy" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;page-cache-purge-policy-640x242.jpg" alt="Кэширование страниц - Purge Policy" width="640" height="242" &#47;><&#47;a></p>
+<h2>Вкладка Minify<&#47;h2><br />
+Идем дальше по вкладкам. Следующая после <em>Page Cache<&#47;em> идет&nbsp;<em>Minify<&#47;em>.&nbsp;На этой вкладке можно настроить более детально параметры уменьшения HTML, JS и CSS. Тут так же все делиться на отдельные блоки и каждый мы разберем.</p>
+<p><strong>General<&#47;strong> &mdash;&nbsp;блок общих настроек для минимизации файлов. Тут отметьте все галочками, чтобы перезаписывать структуру URL и отключить минимизацию для зарегистрированных пользователей. Кроме того, в выпадающем списке вы можете установить уведомления об ошибках при минимизации файлов, а можете не устанавливать.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;minify-general.jpg"><img class="aligncenter size-large wp-image-2483" title="Минимизация файлов - General" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;minify-general.jpg" alt="Минимизация файлов - General" width="630" height="296" &#47;><&#47;a><br />
+<strong>HTML &amp; XML<&#47;strong> &mdash;&nbsp;блок настроек для минимизации файлов HTML и XML. Я рекомендую отметить все галочки кроме <em>Don't minify feeds<&#47;em>. Тогда у вас будут сжаты сами файлы HTML и XML, все стили и JS написанные в коде страницы, а так же содержимое RSS канала. Окошко внизу предназначено для возможности оставить комментарии на странице, т.к. минимизация убирает все комментарии, кроме тех, в тексте которых содержаться слова указанные в этом окошке.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;minify-html-xml.jpg"><img class="aligncenter size-large wp-image-2484" title="Минимизация файлов - HTML and XML" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;minify-html-xml.jpg" alt="Минимизация файлов - HTML and XML" width="628" height="387" &#47;><&#47;a><br />
+<strong>JS<&#47;strong> &mdash;&nbsp;блок настроек для минимизации файлов JavaScript. Как я уже говорил выше, минимизация файлов JavaScript может привести к ошибкам со слиянием строк, так что используйте это с осторожностью. У меня были небольшие проблемы, но я быстро их устранил. Для минимизации отметьте галочки как на картинке, если только вы не хотите объединить весь JS из разных концов страницы (например, слить файлы из хедера и футера). Так же вы можете отдельно добавлять файлы JS с помощью кнопки <em>Add a script<&#47;em>. Но перед этим в выпадающем списке выше выберете вашу тему.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;minify-js.jpg"><img class="aligncenter size-large wp-image-2485" title="Минимизация файлов - JS" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;minify-js-640x234.jpg" alt="Минимизация файлов - JS" width="640" height="234" &#47;><&#47;a><br />
+<strong>CSS<&#47;strong> &mdash;&nbsp;блок настроек минимизации файлов стилей. В принципе настройки такие же, как и в блоке выше, можете настроить как на картинке и нормально. Поэтому по второму разу рассказывать не буду, кроме свойства <em>@import handling<&#47;em>. С помощь него можно применить правило <em>@import<&#47;em> в файлах CSS, оно позволяет импортировать содержимое одного CSS-файла в другой. В выпадающем списке выберете Process.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;minify-css.jpg"><img class="aligncenter size-large wp-image-2482" title="Минимизация файлов - CSS" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;minify-css-640x226.jpg" alt="Минимизация файлов - CSS" width="640" height="226" &#47;><&#47;a><br />
+<strong>Advanced<&#47;strong> &mdash;&nbsp;блок дополнительных настроек минимизации файлов. Тут можно ничего не трогать и оставить все как есть. А вообще, тут можно изменить время обновления кэша внешних файлов, время сбора мусора, указать юзер агенты, которым не отдавать кэш и страницы, которые не должны быть сжаты.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;minify-advanced.jpg"><img class="aligncenter size-large wp-image-2481" title="Минимизация файлов - Advanced" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;minify-advanced-640x313.jpg" alt="Минимизация файлов - Advanced" width="640" height="313" &#47;><&#47;a></p>
+<h2>Вкладка Database Cache<&#47;h2><br />
+Идем дальше по вкладкам. Следующая после <em>Minify<&#47;em> идет&nbsp;<em>Database Cache<&#47;em>.&nbsp;На этой вкладке можно настроить чуть более детально кэширование базы данных. Фактически здесь и настраивать нечего.</p>
+<p><strong>General<&#47;strong> &mdash;&nbsp;блок общих настроек кеширования базы данных. Тут только проверьте, чтобы единственная голочк была поставлена. Она отвечает за то, чтобы не кэшировать запросы для зарегистрированных пользователей. С ней вы будете видеть актуальные страницы вашего сайта, когда будете сидеть под админом.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;database-cache-general.jpg"><img class="aligncenter size-large wp-image-2468" title="Кэширование базы данных - General" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;database-cache-general.jpg" alt="Кэширование базы данных - General" width="519" height="182" &#47;><&#47;a><br />
+<strong>Advanced<&#47;strong> &mdash;&nbsp;блок дополнительных настроек кеширования базы данных. Опять же, тут возится не с чем. Как и в других дополнительных настройках, вы можете установить время сбора мусора, время жизни кэша, страницы, которые надо выкинуть из кэша и написать словоформы для игнорирования запросов (запросы, которые будут содержать эти слова не будут кэшироваться).<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;database-cache-advanced.jpg"><img class="aligncenter size-large wp-image-2467" title="Кэширование базы данных - Advanced" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;database-cache-advanced-640x311.jpg" alt="Кэширование базы данных - Advanced" width="640" height="311" &#47;><&#47;a></p>
+<h2>Вкладка Object Cache<&#47;h2><br />
+Идем дальше по вкладкам. Следующая после <em>Database Cache<&#47;em> идет&nbsp;<em>Object Cache<&#47;em>.&nbsp;На этой вкладке, собственно, настраивать нечего, потому что, как я ранее говорил, этот вид кэширования может быть совершенно бесполезен. Но если вы все таки его установили, то все настройки можно оставить как есть и ничего не трогать.</p>
+<h2>Вкладка Browser Cache<&#47;h2><br />
+Идем дальше по вкладкам. Следующая после <em>Object Cache<&#47;em> идет&nbsp;<em>Browser Cache<&#47;em>.&nbsp;На этой вкладке можно довольно подробно настроить кэширование страницы браузером, фактически мы можем указать браузеру что и на сколько кэшировать.</p>
+<p><strong>General<&#47;strong> &mdash;&nbsp;блок общих настроек для кэша браузера. По сути, тут все просто и вам надо сделать так же как на рисунке: все выделить кроме двух последних. Т.к. последние два не нужны и будут нагружать сервер лишними действиями.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;browser-cache-general.jpg"><img class="aligncenter size-large wp-image-2466" title="Кеширование браузера - General" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;browser-cache-general-640x467.jpg" alt="Кеширование браузера - General" width="640" height="467" &#47;><&#47;a><br />
+<strong>CSS &amp; JS<&#47;strong>, <strong>HTML &amp; XML<&#47;strong>, <strong>Media &amp; Other Files<&#47;strong> &mdash;&nbsp;блоки настройки кэширования браузером файлов JS, CSS, HTML, XML и других. Тут все так же просто и можно оставить, как есть. Единственное, что вы может захотите изменить это время истечения срога существования кэша в каждом из блоков. У себя я установил следующие цифры: для CSS и JS 2628000 секунд (1 месяц), для HTML и XML 3600 секунд (1 час) и для остальных файлов 31536000 секунд (1 год). У себя вы можете выставить и другие цифры, тут надо исходить из того, как часто вы собираетесь менять эти файлы на своем сайте. Если это происходит редко, то большие цифры можно поставить везде.<br />
+<a href="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;browser-cache-css-js-html-xml-media-other-files.jpg"><img class="aligncenter size-large wp-image-2465" title="Кэширование браузера - CSS, JS, HTML, XML, Media and Other Files" src="http:&#47;&#47;image.paperplane.su&#47;2012&#47;05&#47;browser-cache-css-js-html-xml-media-other-files-640x137.jpg" alt="Кэширование браузера - CSS, JS, HTML, XML, Media and Other Files" width="640" height="137" &#47;><&#47;a></p>
+<h2>Заключение<&#47;h2><br />
+После настройки кэширования необходимо обновить сам кэш. Вверху появится кнопка <em>Empty page cache<&#47;em>, вот ее то и нужно нажать для очистки кэша от устаревших файлов. После этого вы увидите вверху зеленое слово <em>Enable<&#47;em>, означающее, что плагин успешно функционирует.</p>
+<p>Настройка довольно долгая и большая, возможно все не выйдет с первого раза и в процессе будут какие-то проблемы, но оно того стоит. Проверил на своей шкуре.</p>
+<p>На этом у меня все. Ваши вопросы и предложения пишите в комментарии, чем смогу - помогу. Всем удачи!</p>

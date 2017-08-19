@@ -1,0 +1,258 @@
+---
+layout: post
+status: publish
+published: true
+title: Использование базы данных в качестве провайдера перевода в Symfony 2
+author:
+  display_name: SlowProg
+  login: seoadmin
+  email: paperplanesu@rambler.ru
+  url: http://paperplane.su
+author_login: seoadmin
+author_email: paperplanesu@rambler.ru
+author_url: http://paperplane.su
+wordpress_id: 1952
+wordpress_url: http://paperplane.su/?p=1952
+date: '2012-01-20 21:28:12 +0400'
+date_gmt: '2012-01-20 17:28:12 +0400'
+categories:
+- Symfony 2
+tags:
+- Локализация
+- перевод
+- база данных
+comments:
+- id: 45346
+  author: Dark
+  author_email: seo-in@ya.ru
+  author_url: ''
+  date: '2012-04-24 20:30:29 +0400'
+  date_gmt: '2012-04-24 16:30:29 +0400'
+  content: "У вас идут нарушения CS.\r\n\r\nhttp:&#47;&#47;symfony.com&#47;doc&#47;current&#47;contributing&#47;code&#47;standards.html\r\nhttp:&#47;&#47;symfony.com&#47;doc&#47;current&#47;contributing&#47;code&#47;conventions.html"
+- id: 45366
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-04-25 13:26:02 +0400'
+  date_gmt: '2012-04-25 09:26:02 +0400'
+  content: "Вы пронеслись вихрем по блогу и везде оставили замечания =) Я рад что
+    есть критики. Замечания учту и обязательно постараюсь исправится. А то я не сильно
+    профессионал в Symfony2, но этот фреймворк мне определенно очень нравится. Буду
+    совершенствоваться.\r\n\r\nА что касательно этой статьи, то это перевод забугорного
+    поста, который мне подсобил в один момент и я решил запостить его у себя как есть.
+    Но вообще, он нынче уже не сильно актуален, если только для каких-нибудь частных
+    задач."
+- id: 184594
+  author: Andrey
+  author_email: andrey.v.larionov@gmail.com
+  author_url: ''
+  date: '2013-09-17 11:27:30 +0400'
+  date_gmt: '2013-09-17 07:27:30 +0400'
+  content: А не могли бы Вы привести пример использования зарегистрированного сервиса
+    в приложении для перевода?
+- id: 184596
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-09-17 11:48:25 +0400'
+  date_gmt: '2013-09-17 07:48:25 +0400'
+  content: "Ох, как это давно было =) Но если мне не изменяет память, то идея была
+    в том, чтобы только подменить провайдер переводов, а конечный интерфейс перевода
+    оставить как есть. Т.е. перевод будет осуществляться методом <em>trans()<&#47;em>
+    сервиса <em>translator<&#47;em>. Например, в контроллере это будет выглядеть так:\r\n<code>$this->get('translator')->trans('exception.edit_ban');<&#47;code>\r\nВсё
+    точно так же как если бы источниками перевода были бы файлы. Но я точно не могу
+    сказать будет это работать на Symfony 2.3 и выше т.к. сам не тестил на этих версиях.
+    Может придётся что допилить.\r\n\r\nА вообще, сам я в конечном итоге использовал
+    другой подход для хранения переводов сущностей. Это решение основано на <a target=\"_blank\"
+    href=\"http:&#47;&#47;knplabs.com.ua&#47;blog&#47;I%28blah...blah...blah%29n\"
+    rel=\"nofollow\">статье knplabs<&#47;a>."
+---
+<p>Добрый, сегодня я хочу вам предоставить перевод одной замечательной статьи про организацию <strong>локализации в Symfony 2<&#47;strong>. Эта статья повествует о том как сделать перевод в Symfony 2 с помощью <strong>базы данных<&#47;strong>. Как мы знаем, на данный момент локализация в Symfony2 организуется с помощью специальной системы, где провайдерами переводов являются файлы создаваемые под каждый язык, но иногда такая схема действий не совсем подходит. И у меня случилась такая нестандартная задача, где удобнее и практичнее было бы применить в качестве провайдера переводов базу данных. А статья <a title="Использование базы данных как провайдера переводов в Symfony 2" href="http:&#47;&#47;blog.elendev.com&#47;development&#47;php&#47;symfony&#47;use-a-database-as-translation-provider-in-symfony-2&#47;" target="_blank">Use a database as a translation provider in Symfony 2<&#47;a> помогла мне в решении поставленной задачи, собственно, потому я и решил ее перевести, в надежде, что кому-нибудь она тоже поможет. Да и сама по себе идея очень хорошая, пусть получит распространение. У меня все заработало на <em>Ура<&#47;em> и если кому потребуется помощь, то пишите в комментарии. Это было мое предисловие, теперь приступим к чтению перевода статьи.</p>
+<h2>Введение<&#47;h2><br />
+В этой статье описано, как использовать базу данных в качестве провайдера перевода в Symfony 2. Организовать использование базы данных для предоставления перевода в Symfony 2 достаточно легко, но к сожалению почему-то это не описано на <a href="http:&#47;&#47;symfony.com&#47;" rel="nofollow" target="_blank">офсайте Symfony 2<&#47;a>.</p>
+<h2 id="creating-language-entities">Создание языковых сущностей<&#47;h2><br />
+Сначала мы должны создать сущности для управления языками в базе данных. В моем случае, я создал три сущности:</p>
+<ul>
+<li><em>Language<&#47;em> содержит все доступные языки (например, <em>french<&#47;em>, <em>english<&#47;em>, <em>german<&#47;em>).<&#47;li>
+<li><em>LanguageToken<&#47;em> содержит все имеющиеся токены языка. Сущность-токен представляет собой <em>источник<&#47;em> тегов XLIFF-файлов. Каждый переводимый текст доступен по своему токену. Например, я использую <em>home_page<&#47;em> как токен, который переводится как <em>Page principale<&#47;em> на французском языке и как <em>Home page<&#47;em> на английском.<&#47;li>
+<li><em>LanguageTranslation<&#47;em> содержит переводы токенов на определенном языке. В приведенном выше примере <em>Page principale<&#47;em> является сущностью <em>LanguageTranslation<&#47;em> для <em>французского<&#47;em> языка и токена <em>home_page<&#47;em>.<&#47;li><br />
+<&#47;ul><br />
+Это довольно неэффективно, но переводы будут кэшироваться в файлах Symfony 2, и в конце концов это будет использоваться только один раз при первом исполнении (если только вы не удалите кэш-файлы Symfony 2).</p>
+<p>Код сущности <em>Language<&#47;em>:<br />
+[cce lang="php"]&#47;**<br />
+ * @ORM\Entity(repositoryClass="YourApp\YourBundle\Repository\LanguageRepository")<br />
+ *&#47;<br />
+class Language {</p>
+<p>    &#47;**<br />
+     * @ORM\Id<br />
+     * @ORM\Column(type="integer")<br />
+     * @ORM\GeneratedValue<br />
+     *&#47;<br />
+    private $id;</p>
+<p>    &#47;** @ORM\column(type="string", length=200) *&#47;<br />
+    private $locale;</p>
+<p>    &#47;** @ORM\column(type="string", length=200) *&#47;<br />
+    private $name;</p>
+<p>    public function getId() {<br />
+        return $this->id;<br />
+    }</p>
+<p>    public function setId($id) {<br />
+        $this->id = $id;<br />
+    }</p>
+<p>    public function getLocale() {<br />
+        return $this->locale;<br />
+    }</p>
+<p>    public function setLocale($locale) {<br />
+        $this->locale = $locale;<br />
+    }<br />
+    public function getName() {<br />
+        return $this->name;<br />
+    }</p>
+<p>    public function setName($name) {<br />
+        $this->name = $name;<br />
+    }<br />
+}[&#47;cce]<br />
+Код сущности <em>LanguageToken<&#47;em>:<br />
+[cce lang="php"]&#47;**<br />
+ * @ORM\Entity(repositoryClass="YourApp\YourBundle\Repository\LanguageTokenRepository")<br />
+ *&#47;<br />
+class LanguageToken {</p>
+<p>    &#47;**<br />
+     * @ORM\Id @ORM\Column(type="integer")<br />
+     * @ORM\GeneratedValue<br />
+     *&#47;<br />
+    private $id;</p>
+<p>    &#47;** @ORM\column(type="string", length=200, unique=true) *&#47;<br />
+    private $token;</p>
+<p>    public function getId() {<br />
+        return $this->id;<br />
+    }</p>
+<p>    public function setId($id) {<br />
+        $this->id = $id;<br />
+    }</p>
+<p>    public function getToken() {<br />
+        return $this->token;<br />
+    }</p>
+<p>    public function setToken($token) {<br />
+        $this->token = $token;<br />
+    }<br />
+}[&#47;cce]<br />
+Код сущности <em>LanguageTranslation<&#47;em>:<br />
+[cce lang="php"]&#47;**<br />
+ * @ORM\Entity(repositoryClass="YourApp\YourBundle\Repository\LanguageTranslationRepository")<br />
+ *&#47;<br />
+class LanguageTranslation {</p>
+<p>    &#47;**<br />
+     * @ORM\Id @ORM\Column(type="integer")<br />
+     * @ORM\GeneratedValue<br />
+     *&#47;<br />
+    private $id;</p>
+<p>    &#47;** @ORM\column(type="string", length=200) *&#47;<br />
+    private $catalogue;</p>
+<p>    &#47;** @ORM\column(type="text") *&#47;<br />
+    private $translation;</p>
+<p>    &#47;**<br />
+     * @ORM\ManyToOne(targetEntity="YourApp\YourBundle\Entity\Language", fetch="EAGER")<br />
+     *&#47;<br />
+    private $language;</p>
+<p>    &#47;**<br />
+     * @ORM\ManyToOne(targetEntity="YourApp\YourBundle\Entity\LanguageToken", fetch="EAGER")<br />
+     *&#47;<br />
+    private $languageToken;</p>
+<p>    public function getId() {<br />
+        return $this->id;<br />
+    }</p>
+<p>    public function setId($id) {<br />
+        $this->id = $id;<br />
+    }</p>
+<p>    public function getCatalogue() {<br />
+        return $this->catalogue;<br />
+    }</p>
+<p>    public function setCatalogue($catalogue) {<br />
+        $this->catalogue = $catalogue;<br />
+    }</p>
+<p>    public function getTranslation() {<br />
+        return $this->translation;<br />
+    }</p>
+<p>    public function setTranslation($translation) {<br />
+        $this->translation = $translation;<br />
+    }</p>
+<p>    public function getLanguage() {<br />
+        return $this->language;<br />
+    }</p>
+<p>    public function setLanguage($language) {<br />
+        $this->language = $language;<br />
+    }</p>
+<p>    public function getLanguageToken() {<br />
+        return $this->languageToken;<br />
+    }</p>
+<p>    public function setLanguageToken($languageToken) {<br />
+        $this->languageToken = $languageToken;<br />
+    }<br />
+}[&#47;cce]</p>
+<h2 id="lmplementing-loaderinterface">Реализация LoaderInterface<&#47;h2><br />
+Вторым шагом будет создание класса, расширяющего <em>Symfony\Component\Translation\Loader\LoaderInterface<&#47;em>. Соответствующий код класса ниже:<br />
+[cce lang="php"]class DBLoader implements LoaderInterface{<br />
+    private $transaltionRepository;<br />
+    private $languageRepository;</p>
+<p>    &#47;**<br />
+     * @param EntityManager $entityManager<br />
+     *&#47;<br />
+    public function __construct(EntityManager $entityManager){<br />
+        $this->transaltionRepository = $entityManager->getRepository("AppCommonBundle:LanguageTranslation");<br />
+        $this->languageRepository = $entityManager->getRepository("AppCommonBundle:Language");<br />
+    }</p>
+<p>    function load($resource, $locale, $domain = 'messages'){<br />
+        &#47;&#47; выгрузка из БД по определенной локали<br />
+        $language = $this->languageRepository->getLanguage($locale);</p>
+<p>        $translations = $this->transaltionRepository->getTranslations($language, $domain);</p>
+<p>        $catalogue = new MessageCatalogue($locale);</p>
+<p>        &#47;**@var $translation Frtrains\CommonbBundle\Entity\LanguageTranslation *&#47;<br />
+        foreach($translations as $translation){<br />
+            $catalogue->set($translation->getLanguageToken()->getToken(), $translation->getTranslation(), $domain);<br />
+        }</p>
+<p>        return $catalogue;<br />
+    }<br />
+}[&#47;cce]<br />
+Класс <em>DBLoader<&#47;em> должен иметь все переводы из <em>LanguageTranslationRepository<&#47;em> (объект <em>translationRepository<&#47;em>). Метод <em>getTranslations($language, $domain)<&#47;em> из объекта <em>translationRepository<&#47;em> представлен ниже:<br />
+[cce lang="php"]class LanguageTranslationRepository extends EntityRepository {</p>
+<p>    &#47;**<br />
+     * Return all translations for specified token<br />
+     * @param type $token<br />
+     * @param type $domain<br />
+     *&#47;<br />
+    public function getTranslations($language, $catalogue = "messages"){<br />
+        $query = $this->getEntityManager()->createQuery("SELECT t FROM AppCommonBundle:LanguageTranslation t WHERE t.language = :language AND t.catalogue = :catalogue");<br />
+        $query->setParameter("language", $language);<br />
+        $query->setParameter("catalogue", $catalogue);</p>
+<p>        return $query->getResult();<br />
+    }<br />
+    ...<br />
+}[&#47;cce]<br />
+Класс <em>DBLoader<&#47;em> будет создан в Symfony как сервис, конструктор которого будет принимать <em>EntityManager<&#47;em> как аргумент. Все аргументы метода <em>load<&#47;em> позволяют настраивать способ загрузки перевода.</p>
+<h2 id="create-service-dbloader">Создание сервиса DBLoader<&#47;h2><br />
+Третий шаг заключается в создании сервиса с помощью ранее созданного класса. Для создания сервиса добавьте в <em>config.yml<&#47;em> следующий код:<br />
+[cce lang="text"]services:<br />
+    translation.loader.db:<br />
+        class: MyApp\CommonBundle\Services\DBLoader<br />
+        arguments: [@doctrine.orm.entity_manager]<br />
+        tags:<br />
+            - { name: translation.loader, alias: db}[&#47;cce]<br />
+Тег <em>transation.loader<&#47;em> указывает Symfony использовать этот загрузчик перевода для алиаса <em>db<&#47;em>.</p>
+<h2 id="create-fake-translation-files">Создание фейковых файлов перевода<&#47;h2><br />
+Последним шагом является создание файла <em>app&#47;Resources&#47;translations&#47;messages.xx.db<&#47;em> для каждого перевода (где хх = en, fr, de, ...).</p>
+<p>Я не нашел способ уведомить Symfony по умолчанию использовать <em>DBLoader<&#47;em> как загрузчик перевода. Можно поступить иначе - создать файл <em>app&#47;Resources&#47;translations&#47;messages.en.db<&#47;em>. Расширение <em>db<&#47;em> соответствует алиасу <em>db<&#47;em>, используемому в объявлении сервиса. Соответственно можно создать файлы для каждого языка доступного на веб-сайте, например, <em>messages.fr.db<&#47;em> для французского или <em>messages.de.db<&#47;em> для немецкого.</p>
+<p>Когда Symfony найдет файл <em>messages.xx.db<&#47;em>, то он загрузит <em>translation.loader.db<&#47;em> для управления этим неизвестным расширением, а затем <em>DBLoader<&#47;em> используя базу данных предоставит перевод.</p>
+<p>Я также не нашел способ нормально очистить кэш переводов при их модификации из базы данных (кэш должны быть очищены, чтобы заставить Symfony сделать его заново). Но можно использовать приведенный ниже код для ручной очистки кэша переводов:<br />
+[cce lang="php"]&#47;**<br />
+ * Удаление языка во всех директориях кэша<br />
+ *&#47;<br />
+private function clearLanguageCache(){<br />
+    $cacheDir = __DIR__ . "&#47;..&#47;..&#47;..&#47;..&#47;app&#47;cache";</p>
+<p>    $finder = new \Symfony\Component\Finder\Finder();</p>
+<p>    $finder->in(array($cacheDir . "&#47;dev&#47;translations", $cacheDir . "&#47;prod&#47;translations"))->files();</p>
+<p>    foreach($finder as $file){<br />
+        unlink($file->getRealpath());<br />
+    }<br />
+}[&#47;cce]<br />
+Это решение не лучшее (я буду обновлять этот пост, если я найду лучшее решение), но оно работает ^^.</p>

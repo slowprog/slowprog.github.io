@@ -1,0 +1,221 @@
+---
+layout: post
+status: publish
+published: true
+title: Удобные расширения Doctrine 2
+author:
+  display_name: SlowProg
+  login: seoadmin
+  email: paperplanesu@rambler.ru
+  url: http://paperplane.su
+author_login: seoadmin
+author_email: paperplanesu@rambler.ru
+author_url: http://paperplane.su
+wordpress_id: 2037
+wordpress_url: http://paperplane.su/?p=2037
+date: '2012-02-15 20:41:46 +0400'
+date_gmt: '2012-02-15 16:41:46 +0400'
+categories:
+- Doctrine 2
+tags:
+- расширения
+- orm
+comments:
+- id: 95492
+  author: Виктор
+  author_email: rock4ever@mail.ru
+  author_url: ''
+  date: '2012-10-13 17:35:12 +0400'
+  date_gmt: '2012-10-13 13:35:12 +0400'
+  content: "Доброго времени суток.\r\nМеня интересует Tree exension для Doctrine 2,
+    но никак не могу найти как прилепить это расширение к обычному PHP проекту?\r\nСпасибо"
+- id: 95494
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2012-10-13 17:43:37 +0400'
+  date_gmt: '2012-10-13 13:43:37 +0400'
+  content: Да, хороший пакет, много рутинных задач решает. А в чем у вас проблема?
+    Наверно в том, что вы не учли зависимости. Вот поглядите <a href="https:&#47;&#47;packagist.org&#47;packages&#47;gedmo&#47;doctrine-extensions"
+    rel="nofollow">тут зависимости<&#47;a> этого пакета. Вам потребуется еще пакет
+    <strong>doctrine&#47;common<&#47;strong>. А для того чтобы разобраться как его
+    использовать в обычном проекте PHP гляньте <a href="https:&#47;&#47;github.com&#47;l3pp4rd&#47;DoctrineExtensions&#47;blob&#47;master&#47;example&#47;run.php"
+    rel="nofollow">пример использования<&#47;a>.
+- id: 159761
+  author: Morontt
+  author_email: morontt@gmail.com
+  author_url: http://morontt.info
+  date: '2013-05-24 01:40:43 +0400'
+  date_gmt: '2013-05-23 21:40:43 +0400'
+  content: Где новые и свежие посты? :)
+- id: 159766
+  author: SlowProg
+  author_email: paperplanesu@rambler.ru
+  author_url: http://paperplane.su
+  date: '2013-05-24 01:58:53 +0400'
+  date_gmt: '2013-05-23 21:58:53 +0400'
+  content: "Времени совсем нет Т_т\r\n\r\nЯ бы рад написать обо всём на свете, но
+    руки никак не доходят! Но я кое-что хочу запостить. Так по мелочи, но хоть что-то.
+    Правда Доктрины это едва ли будет касаться =)"
+- id: 159767
+  author: Morontt
+  author_email: morontt@gmail.com
+  author_url: http://morontt.info
+  date: '2013-05-24 02:00:25 +0400'
+  date_gmt: '2013-05-23 22:00:25 +0400'
+  content: В доктрину я залез случайным образом :)
+---
+<p>Сегодня многие при разработке сложных (и не очень) сайтов используют различные <a title="Объектно-реляционное отображение" href="http:&#47;&#47;ru.wikipedia.org&#47;wiki&#47;ORM" rel="nofollow" target="_blank">ORM<&#47;a>, которые облегчают и абстрагируют работу с базой данных. Они есть различные, как проприетарные так и свободные, но интересуют меня только последние в частности Doctrine2. Это одна из самых популярных и быстроразвивающихся ORM. Многие ее юзают и хвалят, но не все знают о всяких удобных фичах, которые делают работу на Doctrine 2 еще удобней и симпатичнее. Вот как раз об одном из таких удобных дополнений я и хочу сегодня рассказать.</p>
+<p>Дык, вот есть замечательный пакет <a href="https:&#47;&#47;github.com&#47;l3pp4rd&#47;DoctrineExtensions" rel="nofollow" target="_blank">DoctrineExtensions<&#47;a>, который содержит расширения для Doctrine2. Он предоставляет новые функциональные возможности для более эффективного использования Doctrine. Этот пакет содержит действия, которые с легкостью могут быть подвешены на события в Doctrine2. Пакет имеет следующие расширения:</p>
+<ul>
+<li><strong>Tree<&#47;strong> - это расширение позволяет автоматизировать процесс создания и обработки дерева, а так же добавлять к дереву специфические функции.<&#47;li>
+<li><strong>Translatable<&#47;strong> - очень удобное решение для перевода записей на различные языки.<&#47;li>
+<li><strong>Sluggable<&#47;strong> - это расширение превращает обычные ссылки в удобочитаемые.<&#47;li>
+<li><strong>Timestampable<&#47;strong> - расширение автоматически создающее и заполняющее дату создания и обновления сущности.<&#47;li>
+<li><strong>Loggable<&#47;strong> - расширение для отслеживания истории изменения объектов и организации контроля версий.<&#47;li>
+<li><strong>Sortable<&#47;strong> - расширение, которое делает любой документ или сущность сортируемым.<&#47;li><br />
+<&#47;ul><br />
+Вот такие возможности. Это позволяет ускорить разработку в пару раз. Теперь не надо будет возится со всякой ерундой. Ниже приведу небольшие примеры использования всех расширения с помощью аннотаций.<br />
+[cce lang="php"]namespace MyApp\Entity;</p>
+<p>use Gedmo\Mapping\Annotation as Gedmo;<br />
+use Doctrine\ORM\Mapping\Id;<br />
+use Doctrine\ORM\Mapping as ORM;</p>
+<p>&#47;**<br />
+ * @ORM\Entity<br />
+ * @Gedmo\TranslationEntity(class="something")<br />
+ *&#47;<br />
+class Article<br />
+{<br />
+    &#47;**<br />
+     * @Id<br />
+     * @Gedmo\Slug(fields={"title"}, updatable=false, separator="_")<br />
+     * @ORM\Column(length=32, unique=true)<br />
+     *&#47;<br />
+    private $id;</p>
+<p>    &#47;**<br />
+     * @Gedmo\Translatable<br />
+     * @ORM\Column(length=64)<br />
+     *&#47;<br />
+    private $title;</p>
+<p>    &#47;**<br />
+     * @Gedmo\Timestampable(on="create")<br />
+     * @ORM\Column(type="datetime")<br />
+     *&#47;<br />
+    private $created;<br />
+}[&#47;cce]<br />
+Как видите, ничего сложного в использовании расширений&nbsp;<em>Translatable<&#47;em>,&nbsp;<em>Timestampable<&#47;em> и&nbsp;<em>Sluggable<&#47;em>. Так же <em>Loggable<&#47;em> не являться чем-то страшным:<br />
+[cce lang="php"]namespace Entity;</p>
+<p>use Gedmo\Mapping\Annotation as Gedmo;<br />
+use Doctrine\ORM\Mapping as ORM;</p>
+<p>&#47;**<br />
+ * @Entity<br />
+ * @Gedmo\Loggable<br />
+ *&#47;<br />
+class Article<br />
+{<br />
+    &#47;**<br />
+     * @ORM\Column(name="id", type="integer")<br />
+     * @ORM\Id<br />
+     * @ORM\GeneratedValue(strategy="IDENTITY")<br />
+     *&#47;<br />
+    private $id;</p>
+<p>    &#47;**<br />
+     * @Gedmo\Versioned<br />
+     * @ORM\Column(name="title", type="string", length=8)<br />
+     *&#47;<br />
+    private $title;</p>
+<p>    public function getId()<br />
+    {<br />
+        return $this->id;<br />
+    }</p>
+<p>    public function setTitle($title)<br />
+    {<br />
+        $this->title = $title;<br />
+    }</p>
+<p>    public function getTitle()<br />
+    {<br />
+        return $this->title;<br />
+    }<br />
+}[&#47;cce]<br />
+А вот использование <em>Tree<&#47;em> уже требует больше работы с аннотацией, но так же не является сложным, просто количественно больше писанины, а смысл и так понятен:<br />
+[cce lang="php"]namespace Entity;</p>
+<p>use Gedmo\Mapping\Annotation as Gedmo;<br />
+use Doctrine\ORM\Mapping as ORM;</p>
+<p>&#47;**<br />
+ * @Gedmo\Tree(type="nested")<br />
+ * @ORM\Table(name="categories")<br />
+ * use repository for handy tree functions<br />
+ * @ORM\Entity(repositoryClass="Gedmo\Tree\Entity\Repository\NestedTreeRepository")<br />
+ *&#47;<br />
+class Category<br />
+{<br />
+    &#47;**<br />
+     * @ORM\Column(name="id", type="integer")<br />
+     * @ORM\Id<br />
+     * @ORM\GeneratedValue<br />
+     *&#47;<br />
+    private $id;</p>
+<p>    &#47;**<br />
+     * @ORM\Column(name="title", type="string", length=64)<br />
+     *&#47;<br />
+    private $title;</p>
+<p>    &#47;**<br />
+     * @Gedmo\TreeLeft<br />
+     * @ORM\Column(name="lft", type="integer")<br />
+     *&#47;<br />
+    private $lft;</p>
+<p>    &#47;**<br />
+     * @Gedmo\TreeLevel<br />
+     * @ORM\Column(name="lvl", type="integer")<br />
+     *&#47;<br />
+    private $lvl;</p>
+<p>    &#47;**<br />
+     * @Gedmo\TreeRight<br />
+     * @ORM\Column(name="rgt", type="integer")<br />
+     *&#47;<br />
+    private $rgt;</p>
+<p>    &#47;**<br />
+     * @Gedmo\TreeRoot<br />
+     * @ORM\Column(name="root", type="integer", nullable=true)<br />
+     *&#47;<br />
+    private $root;</p>
+<p>    &#47;**<br />
+     * @Gedmo\TreeParent<br />
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="children")<br />
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="SET NULL")<br />
+     *&#47;<br />
+    private $parent;</p>
+<p>    &#47;**<br />
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="parent")<br />
+     * @ORM\OrderBy({"lft" = "ASC"})<br />
+     *&#47;<br />
+    private $children;<br />
+}[&#47;cce]<br />
+Ну и на последки приведу пример применения <em>Sortable<&#47;em> с помощью аннотации:<br />
+[cce lang="php"]namespace Entity;</p>
+<p>use Gedmo\Mapping\Annotation as Gedmo;<br />
+use Doctrine\ORM\Mapping as ORM;</p>
+<p>&#47;**<br />
+ * @ORM\Table(name="items")<br />
+ * @ORM\Entity(repositoryClass="Gedmo\Sortable\Entity\Repository\SortableRepository")<br />
+ *&#47;<br />
+class Item<br />
+{<br />
+    &#47;** @ORM\Id @ORM\GeneratedValue @ORM\Column(type="integer") *&#47;<br />
+    private $id;</p>
+<p>    &#47;**<br />
+     * @ORM\Column(name="name", type="string", length=64)<br />
+     *&#47;<br />
+    private $name;</p>
+<p>    &#47;**<br />
+     * @Gedmo\SortablePosition<br />
+     * @ORM\Column(name="position", type="integer")<br />
+     *&#47;<br />
+    private $position;</p>
+<p>    &#47;**<br />
+     * @Gedmo\SortableGroup<br />
+     * @ORM\Column(name="category", type="string", length=128)<br />
+     *&#47;<br />
+    private $category;<br />
+}[&#47;cce]<br />
+Ну на этом все. Конечно же для большей наглядности и понимания очень вам рекомендую почитать и полистать <a href="https:&#47;&#47;github.com&#47;l3pp4rd&#47;DoctrineExtensions&#47;tree&#47;master&#47;doc" title="Документация DoctrineExtensions" target="_blank" rel="nofollow">документацию<&#47;a> по этому расширению и там уже все яснее, потому я тут далеко не подробные примеры привел, а такие только чтобы показать как легко использовать эти расширения. Ну ладно, пока это все, удачного все программирования!</p>
