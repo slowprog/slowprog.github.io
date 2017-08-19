@@ -35,6 +35,7 @@
   },
   "scripts": {
     "jekyll-build": "bundle exec jekyll build --config _config.yml,_config_dev.yml",
+    "jekyll-drafts": "bundle exec jekyll build --drafts --config _config.yml,_config_dev.yml",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -60,6 +60,7 @@ const JEKYLL_SRC = [
   '_layouts/**',
   '_pages/**',
   '_posts/**',
+  '_drafts/**',
   'blog/**',
   'tags/**',
   'posts.json',
@@ -187,6 +188,14 @@ gulp.task('build:jekyll', ['default'], function (done) {
   .on('close', done);
 });
 
+// Build the Jekyll site with drafts
+gulp.task('build:jekyll-drafts', ['default'], function (done) {
+  browserSync.notify('Compiling Jekyll, please wait!');
+
+  return cp.spawn(npm, ['run', 'jekyll-drafts'], { stdio: 'inherit' })
+  .on('close', done);
+});
+
 // Rebuild scripts and do page reload
 gulp.task('rebuild:scripts', function () {
   return gulp.src(SCRIPTS_SRC)
@@ -234,12 +243,12 @@ gulp.task('rebuild:images', function () {
 });
 
 // Rebuild Jekyll and do page reload
-gulp.task('rebuild:jekyll', ['build:jekyll'], function () {
+gulp.task('rebuild:jekyll', ['build:jekyll-drafts'], function () {
   browserSync.reload();
 });
 
 // Watch changes
-gulp.task('watch', ['clean:jekyll', 'build:jekyll'], function () {
+gulp.task('watch', ['clean:jekyll', 'build:jekyll-drafts'], function () {
   browserSync({
     server: {
       baseDir: './_site'
