@@ -19,12 +19,12 @@ layout: default
 
             <!-- Post meta -->
             <div class="postHeader-meta">
-              <time 
-                itemprop="datePublished" 
+              <time
+                itemprop="datePublished"
                 datetime="{{ date_published }}"
                 {% if page.last_modified_at %}
-                  data-toggle="tooltip" 
-                  data-placement="top" 
+                  data-toggle="tooltip"
+                  data-placement="top"
                   title="Обновленно {% include translated_date.html date=page.last_modified_at %}"
                 {% endif %}
               >
@@ -183,7 +183,7 @@ layout: default
       {% endif %}
 
       <!-- Disqus -->
-      {% if site.disqus_shortname and page.comments != 'false' %}
+      {% if site.disqus_shortname and page.comments != false %}
         {% if jekyll.environment == "production" %}
           {% include disqus_thread.html %}
         {% endif %}
