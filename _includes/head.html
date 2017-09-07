@@ -122,5 +122,8 @@
 
   <!-- Add to homescreen for Chrome on Android -->
   <meta name="theme-color" content="{% if site.theme_color %}{{ site.theme_color }}{% else %}aliceblue{% endif %}">
-  
+
+  {% if jekyll.environment == "production" %}
+    {% include counters.html %}
+  {% endif %}
 </head>
