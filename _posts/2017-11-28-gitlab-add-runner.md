@@ -16,13 +16,13 @@ tags: [gitlab, runner, pipeline, docker]
 
 Но бывают случаи когда есть сервере (обычно это Ubuntu какая-нибудь), но на нём нет Docker и тогда всё очень просто:
 
-```
+```bash
 $ curl -sSL https://get.docker.com/ | sh
 ```
 
 Эта команда сама установить докер на машину, если его нет. А в том случае, если в процессе вам понадобится и docker-compose, то ещё и так:
 
-```
+```bash
 $ apt-get update
 $ apt-get -y install python-pip
 $ pip install docker-compose
@@ -32,10 +32,10 @@ $ pip install docker-compose
 
 ## 2. Запускаем runner
 
-Для начала надо поднять контейнер с раннером:
+Для начала надо поднять контейнер с раннером на нашем сервере:
 
-```
-docker run -d --name gitlab-runner --restart always \
+```bash
+$ docker run -d --name gitlab-runner --restart always \
     -v /srv/gitlab-runner/config:/etc/gitlab-runner \
     -v /var/run/docker.sock:/var/run/docker.sock \
     gitlab/gitlab-runner:latest
@@ -47,12 +47,12 @@ docker run -d --name gitlab-runner --restart always \
 
 Для этого необходимо в контейнере исполнить [соответствующую команду](https://docs.gitlab.com/runner/register/index.html#docker) и ответить на соответсвующие вопросы с умом, или без ума, но тогда придётся в самом GitLab менять конфигурацию раннера. Я предпочитаю закидывать сразу всё одной командой, чтобы не отвечать на вопросы.
 
-Следующая команда конфигурирует и регистрирует раннер как нужно (privileged, locked, tags, etc) сразу без последующих настроек:
+Следующая команда конфигурирует и регистрирует раннер как мне нужно (privileged, locked, tags, etc) сразу без последующих настроек:
 
-```
+```bash
 $ docker exec -it gitlab-runner gitlab-runner register -n \
     --url "https://gitlab.domain.com" \
-    --registration-token <token_registration> \
+    --registration-token token_registration \
     --tag-list docker \
     --executor docker \
     --description "Docker Runner" \
@@ -62,15 +62,15 @@ $ docker exec -it gitlab-runner gitlab-runner register -n \
     --docker-privileged
 ```
 
-Соответственно, в вашем варианте *https://gitlab.domain.com* и *<token_registration>* будут другие. Последний надо брать со страницы [администрирования раннеров в GitLab](https://docs.gitlab.com/ce/ci/runners/#registering-a-shared-runner) (внутренная страница */admin/runners*).
+Соответственно, в вашем варианте *https://gitlab.domain.com* и *token_registration* будут другие. Последний надо брать со страницы [администрирования раннеров в GitLab](https://docs.gitlab.com/ce/ci/runners/#registering-a-shared-runner).
 
 ## 4. Используем runner
 
-Как видно из команды выше, в раннере будут процесситься только джобы помеченные тегом docker в *gitlab-ci.yml*.
+Как видно из команды выше, в раннере будут процесситься только джобы помеченные тегом *docker* в *gitlab-ci.yml*.
 
-Мой простенький ci-конфиг для развёртки с помощью docker-compose всего что попадает в master-ветку:
+Вот, например, мой простенький ci-конфиг для развёртки с помощью *docker-compose* всего, что попадает в master-ветку:
 
-```
+```yml
 variables:
     DOCKER_DRIVER: overlay2
     CI_REGISTRY_IMAGE_WITH_TAG_BY_TAG: "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME"
