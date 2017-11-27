@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Добавление раннера в GitLab на базе Docker
+title: Добавление раннера в GitLab с помощью Docker
 date: 2017-11-28T00:24:00+03:00
 categories: DevOps
 tags: [gitlab, runner, pipeline, docker]
@@ -115,4 +115,4 @@ deploy:
         - ssh root@$DEPLOYMENT_SERVER_IP "docker login -u gitlab-ci-token -p ${CI_JOB_TOKEN} ${CI_REGISTRY}; docker pull ${CI_REGISTRY_IMAGE_WITH_TAG_BY_MASTER}; docker-compose -f docker-compose.yml -f docker-compose.prod.yml stop; docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d"
 ```
 
-Соответственно в переменных проекта должны быть *DEPLOY_SERVER_PRIVATE_KEY* и *DEPLOYMENT_SERVER_IP*, но это уже совсем другая история. Можете для примера почитать про варианты деплоя [тут](https://medium.com/@Empanado/simple-continuous-deployment-with-docker-compose-docker-machine-and-gitlab-ci-9047765322e1) или [тут](https://medium.com/@codingfriend/continuous-integration-and-deployment-with-gitlab-docker-compose-and-digitalocean-6bd6196b502a).
+Соответственно, в вашем проекте обязательно должны быть переменные окружения *DEPLOY_SERVER_PRIVATE_KEY* и *DEPLOYMENT_SERVER_IP*, но это уже совсем другая история. Можете для примера почитать про варианты деплоя [тут](https://medium.com/@Empanado/simple-continuous-deployment-with-docker-compose-docker-machine-and-gitlab-ci-9047765322e1) или [тут](https://medium.com/@codingfriend/continuous-integration-and-deployment-with-gitlab-docker-compose-and-digitalocean-6bd6196b502a).
