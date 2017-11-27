@@ -58,7 +58,7 @@ $ docker exec -it gitlab-runner gitlab-runner register -n \
     --description "Docker Runner" \
     --docker-image docker:latest \
     --docker-volumes /var/run/docker.sock:/var/run/docker.sock \
-    --locked false
+    --locked false \
     --docker-privileged
 ```
 
