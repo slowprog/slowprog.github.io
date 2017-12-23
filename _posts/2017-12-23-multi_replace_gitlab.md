@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Массовое обновление в репозиториях GitLab
+title: Массовое обновление репозиториев GitLab
 date: '2017-12-23 17:00:00 +0300'
 categories: Мастерская
 tags: [gitlab, bash, tools]
@@ -48,10 +48,10 @@ done <<< "$PROJECTS"
 
 В этом скрипте нужно подставить следующие данные:
 
-* **[path-to-projects-folder]** – путь до директории, где будут находиться проекты (или часть уже там лежит).
-* **[gitlab-domain]** – домен вашего GitLab.
-* **[gitlab-group]** – название группы откуда будут браться проекты.
-* **[gitlab-token]** – токен для работы с API GitLab из своего аккаунта.
+* *[path-to-projects-folder]* – путь до директории, где будут находиться проекты (или часть уже там лежит).
+* *[gitlab-domain]* – домен вашего GitLab.
+* *[gitlab-group]* – название группы откуда будут браться проекты.
+* *[gitlab-token]* – токен для работы с API GitLab из своего аккаунта.
 
 ## 2. Автозамена
 
@@ -59,20 +59,20 @@ done <<< "$PROJECTS"
 
 1. Установить на машину тулзу [ag](https://github.com/ggreer/the_silver_searcher). Вообще, тулза довольно полезная и в хозяйстве её иметь неплохо, с помощью неё можно быстро искать в файлах с кодом, очень быстро, по большому количеству файлов.
 
-2. Создать скрипт _replace.sh_ в директории с проектами со следующим содержимым:
+2. Создать скрипт *replace.sh* в директории с проектами со следующим содержимым:
 
-  ```bash
-  # ag <https://github.com/ggreer/the_silver_searcher>
-  # usage: replace.sh [search] [replace]
-  # caveats: will choke if either arguments contain a forward slash
-  # notes: will back up changed files to *.bak files
+    ```bash
+    # ag <https://github.com/ggreer/the_silver_searcher>
+    # usage: replace.sh [search] [replace]
+    # caveats: will choke if either arguments contain a forward slash
+    # notes: will back up changed files to *.bak files
 
-  ag -l $1 -G $3 | xargs perl -pi -e "s/$1/$2/g"
+    ag -l $1 -G $3 | xargs perl -pi -e "s/$1/$2/g"
 
-  # or if you prefer sed's regex syntax:
+    # or if you prefer sed's regex syntax:
 
-  # ag -l $1 -G $3 | xargs sed -e "s/$1/$2/g"
-  ```
+    # ag -l $1 -G $3 | xargs sed -e "s/$1/$2/g"
+    ```
 
 3. C помощью команды `./replace.sh [some_string] [another_string]`, можно подменять одно на другое. Если необходимо использовать в подмене sed'овый регекс, то в скрипте нужно закомментировать единственную активную строку и раскомментировать последнюю, которая применяет sed, но он работает немного медленнее конечно.
 
@@ -81,9 +81,9 @@ done <<< "$PROJECTS"
 После изменений необходимо закоммитить всё и отправить в GitLab. Тут всё просто, но не без извращений. Следующую команду надо исполнить из директории с проектами:
 
 ```bash
-for d in ./*/ ; do (cd "$d" && $(git commit -am '[commit-message]' 1>/dev/null) && if [[ "$(git push 2>&1)" != "Everything up-to-date" ]]; then printf "${${d%/}##*/},"; fi); done
+$ for d in ./*/ ; do (cd "$d" && $(git commit -am '[commit-message]' 1>/dev/null) && if [[ "$(git push 2>&1)" != "Everything up-to-date" ]]; then printf "${${d%/}##*/},"; fi); done
 ```
 
-Соответственно, вместо **[commit-message]** необходимо указать сообщение коммита, которое будет у всех проектов, у которых были сделаны изменения. Надо быть внимательным т.к. сюда могут попасть не связанные изменения сделанные до массовой замены выше.
+Соответственно, вместо *[commit-message]* необходимо указать сообщение коммита, которое будет у всех проектов, у которых были сделаны изменения. Надо быть внимательным т.к. сюда могут попасть не связанные изменения сделанные до массовой замены выше.
 
 По итогу работы команды будет выведен список директорий-репозиториев, которые подверглись изменению и были отправленных в GitLab.
