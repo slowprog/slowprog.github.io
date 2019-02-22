@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Обработка запроса после отправки ответа в Symfony
-date: 2017-02-22T04:30:00+03:00
+date: 2019-02-22T04:30:00+03:00
 categories: Мастерская
 tags: [php, symfony, response]
 ---
