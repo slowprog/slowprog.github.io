@@ -33,7 +33,7 @@ cat /srv/app/.env.dist \
     | sed -e 's/\s*#.*$//' -e '/^\s*$/d' \
     | awk -F "=" '{print $1}' \
     | awk '{$1=$1};1' \
-    | sed 's/\(.*\)/fastcgi_param \1 ${\1};/g' \
+    | sed "s/\(.*\)/fastcgi_param \1 '\${\1}';/g" \
     | envsubst \
     > /etc/nginx/fastcgi_params_env
 
